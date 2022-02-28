@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_verification_ui/addO.dart';
 
 class Otp extends StatefulWidget {
   const Otp({Key key}) : super(key: key);
@@ -40,7 +41,7 @@ class _OtpState extends State<Otp> {
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset(
-                  'assets/images/no_history_ilustration.png',
+                  'assets/images/splash_ilustration.png',
                 ),
               ),
               SizedBox(
@@ -91,7 +92,11 @@ class _OtpState extends State<Otp> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => AddO()),
+                          );
+                        },
                         style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),

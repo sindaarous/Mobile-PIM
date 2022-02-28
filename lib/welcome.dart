@@ -20,7 +20,7 @@ class _WelcomeState extends State<Welcome> {
           child: Column(
             children: [
               Image.asset(
-                'assets/images/no_history_ilustration.png',
+                'assets/images/splash_ilustration.png',
                 width: 240,
               ),
               SizedBox(
@@ -71,33 +71,6 @@ class _WelcomeState extends State<Welcome> {
                     padding: EdgeInsets.all(14.0),
                     child: Text(
                       'Create Account',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 22,
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.green),
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24.0),
-                      ),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(14.0),
-                    child: Text(
-                      'Login',
                       style: TextStyle(fontSize: 16),
                     ),
                   ),

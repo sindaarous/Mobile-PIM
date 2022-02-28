@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'otp.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class AddO extends StatefulWidget {
   const AddO({Key key}) : super(key: key);
@@ -17,9 +17,34 @@ class _RegisterState extends State<AddO> {
   String _lastname = "";
   String _phone = "";
   String _date = "";
-  String _time = "";
-  String _hospital = "";
-
+  String _jour = "lundi";
+  String _mois = "Janvier";
+  String _time = "9:00";
+  String _hospital = "Publique";
+  final hopital = ['Publique', 'Privé'];
+  final heure = ['9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00'];
+  final jour = [
+    'lundi',
+    'mardi',
+    'mercredi',
+    'jeudi',
+    'vendredi',
+  ];
+  final mois = [
+    'Janvier',
+    'Février',
+    'Mars',
+    'Avril',
+    'Mai',
+    'Juin',
+    'Juillet',
+    'Août',
+    'Septembre',
+    'Octobre',
+    'Novembre',
+    'Décembre'
+  ];
+  String value;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final String _baseUrl = "localhost:9091";
@@ -36,20 +61,6 @@ class _RegisterState extends State<AddO> {
               padding: EdgeInsets.symmetric(vertical: 24, horizontal: 32),
               child: Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: GestureDetector(
-                      onTap: () => Navigator.pop(context),
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 32,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 18,
-                  ),
                   Container(
                     width: 200,
                     height: 200,
@@ -65,7 +76,7 @@ class _RegisterState extends State<AddO> {
                     height: 24,
                   ),
                   Text(
-                    'Appointment',
+                    'Rendez-vous',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -94,11 +105,11 @@ class _RegisterState extends State<AddO> {
                           // ignore: missing_return
                           validator: (String value) {
                             if (value == null || value.isEmpty) {
-                              return "Le first name ne doit pas etre vide";
+                              return "Le Prénom ne doit pas etre vide";
                             }
                           },
                           decoration: InputDecoration(
-                            labelText: "First Name",
+                            labelText: "Prénom",
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(10)),
@@ -123,11 +134,11 @@ class _RegisterState extends State<AddO> {
                           // ignore: missing_return
                           validator: (String value) {
                             if (value == null || value.isEmpty) {
-                              return "Le last name ne doit pas etre vide";
+                              return "Le Nom ne doit pas etre vide";
                             }
                           },
                           decoration: InputDecoration(
-                            labelText: "Last Name",
+                            labelText: "Nom",
                             enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black12),
                                 borderRadius: BorderRadius.circular(10)),
@@ -139,86 +150,51 @@ class _RegisterState extends State<AddO> {
                         SizedBox(
                           height: 22,
                         ),
-                        TextFormField(
-                          keyboardType: TextInputType.datetime,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          onSaved: (String value) {
-                            _date = value;
-                          },
-                          // ignore: missing_return
-                          validator: (String value) {
-                            if (value == null || value.isEmpty) {
-                              return "Le date ne doit pas etre vide";
-                            }
-                          },
-                          decoration: InputDecoration(
-                            labelText: "Date",
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
-                                borderRadius: BorderRadius.circular(10)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
+                        SfDateRangePicker(
+                          selectionColor: Colors.green,
+                          todayHighlightColor: Colors.green,
+                          rangeSelectionColor: Colors.green,
+                          showNavigationArrow: true,
+                          minDate: DateTime.now().add(const Duration(days: -7)),
+                          maxDate: DateTime.now().add(const Duration(days: 7)),
+                          selectionMode: DateRangePickerSelectionMode.single,
+                          initialSelectedRange: PickerDateRange(
+                              DateTime.now().subtract(const Duration(days: 4)),
+                              DateTime.now().add(const Duration(days: 3))),
                         ),
-                        SizedBox(
-                          height: 22,
-                        ),
-                        TextFormField(
-                          keyboardType: TextInputType.number,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          onSaved: (String value) {
-                            _time = value;
-                          },
-                          // ignore: missing_return
-                          validator: (String value) {
-                            if (value == null || value.isEmpty) {
-                              return "Le time ne doit pas etre vide";
-                            }
-                          },
-                          decoration: InputDecoration(
-                            labelText: "Time",
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
-                                borderRadius: BorderRadius.circular(10)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 22,
-                        ),
-                        TextFormField(
-                          keyboardType: TextInputType.text,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          onSaved: (String value) {
-                            _hospital = value;
-                          },
-                          // ignore: missing_return
-                          validator: (String value) {
-                            if (value == null || value.isEmpty) {
-                              return "Le hospital ne doit pas etre vide";
-                            }
-                          },
-                          decoration: InputDecoration(
-                            labelText: "Hospital",
-                            enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
-                                borderRadius: BorderRadius.circular(10)),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black12),
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black12),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<String>(
+                                      value: _time,
+                                      items: heure.map(buildMenuItem).toList(),
+                                      onChanged: (value) =>
+                                          setState(() => this._time = value)),
+                                )),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.black12),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<String>(
+                                      value: _hospital,
+                                      items:
+                                          hopital.map(buildMenuItem).toList(),
+                                      onChanged: (value) => setState(
+                                          () => this._hospital = value)),
+                                )),
+                          ],
                         ),
                         SizedBox(
                           height: 22,
@@ -234,7 +210,7 @@ class _RegisterState extends State<AddO> {
                                   "firstname": _firstname,
                                   "lastname": _lastname,
                                   "phone": _phone,
-                                  "date": _date,
+                                  "date": _jour,
                                   "heure": _time,
                                   "hospital": _hospital
                                 };
@@ -280,7 +256,7 @@ class _RegisterState extends State<AddO> {
                             child: Padding(
                               padding: EdgeInsets.all(14.0),
                               child: Text(
-                                'Add',
+                                'Ajouter',
                                 style: TextStyle(fontSize: 16),
                               ),
                             ),
@@ -297,4 +273,10 @@ class _RegisterState extends State<AddO> {
       ),
     );
   }
+
+  DropdownMenuItem<String> buildMenuItem(String item) => DropdownMenuItem(
+        value: item,
+        child: Text(item,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+      );
 }
