@@ -8,10 +8,10 @@ class ProductInfo extends StatelessWidget {
   final String lastname;
   final String email;
   final String password;
-  final String age;
   final String phone;
   final String birthday;
-  final String gender;
+  final String adresse;
+  final String GroupeSanguine;
   final String situationF;
 
 
@@ -22,10 +22,10 @@ class ProductInfo extends StatelessWidget {
       this.lastname,
       this.email,
        this.password,
-      this.age,
       this.phone,
       this.birthday,
-      this.gender,
+      this.adresse,
+      this.GroupeSanguine,
       this.situationF,
       
      
@@ -48,7 +48,6 @@ class ProductInfo extends StatelessWidget {
             Text(lastname),
             Text(email),
             Text(password),
-            Text(age),
            // Text(id),
           ],
         ),

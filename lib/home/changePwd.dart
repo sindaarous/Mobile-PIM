@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workshop_sim4/home/showProfile.dart';
 import 'package:http/http.dart' as http;
+
+import '../navigations/nav_tab.dart';
 Future<User> fetchUser() async {
   String _baseUrl = "localhost:9091";
   Map<String, String> headers = {
@@ -52,7 +54,9 @@ class _changePwdState extends State<changePwd> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       oldPwd = (prefs.getString('password') ?? '');
+      _email =(prefs.getString('email'));
     });
+
     print("change$oldPwd");
   }
    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -65,20 +69,75 @@ class _changePwdState extends State<changePwd> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("Change Password"),
+        elevation: 0,
+        brightness: Brightness.light,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.black,
+          ),
+        ),
         // print(_id);
       ),
        body: Form(
+         
         key: _formKey,
         child: ListView(
           children: [
             Container(
+               margin: const EdgeInsets.fromLTRB(10, 0, 10, 40),
+             
+              child: Column(
+                
+            crossAxisAlignment: CrossAxisAlignment.center,
+             children: <Widget>[
+                Column(
+                children: <Widget>[
+                   Text("Change Password", style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30
+                  ),),
+                ]
+                )
+             ]
+              )
+              
+            ),
+            Container(
+              
               margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
               child: TextFormField(
+                cursorColor: Colors.black,
+                 style: TextStyle(color: Colors.black),
+                initialValue:_email,
                 keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Email"),
+                decoration: InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderSide: new BorderSide(
+                        color: Colors.greenAccent,
+                      ),
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.email,
+                      color: Colors.black,
+                    ),
+                    labelStyle: TextStyle(color: Colors.black),
+                    // border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.greenAccent)),
+                    labelText: "Email"),
                 onSaved: (String? value) {
                   _email = value;
                 },
@@ -96,10 +155,29 @@ class _changePwdState extends State<changePwd> {
             Container(
               margin: const EdgeInsets.fromLTRB(10, 0, 10, 20),
               child: TextFormField(
+                 cursorColor: Colors.black,
                // maxLines: 4,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "Old Password "),
-                onSaved: (String? value) {
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderSide: new BorderSide(
+                        color: Colors.greenAccent,
+                      ),
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.password,
+                      color: Colors.black,
+                    ),
+                    labelStyle: TextStyle(color: Colors.black),
+                    // border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.greenAccent)),
+                     labelText: "Old password"),
+                    onSaved: (String? value) {
                   _password = value;
                 },
                 validator: (String? value) {
@@ -115,10 +193,29 @@ class _changePwdState extends State<changePwd> {
              Container(
               margin: const EdgeInsets.fromLTRB(10, 0, 10, 20),
               child: TextFormField(
+                cursorColor: Colors.black,
                // maxLines: 4,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(), labelText: "New Password "),
-                onSaved: (String? value) {
+               style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderSide: new BorderSide(
+                        color: Colors.greenAccent,
+                      ),
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.update,
+                      
+                      color: Colors.black,
+                    ),
+                    labelStyle: TextStyle(color: Colors.black),
+                    // border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.greenAccent)),
+                    labelText: "New Password"), onSaved: (String? value) {
                   _passwordnew = value;
                 },
                 validator: (String? value) {
@@ -131,11 +228,20 @@ class _changePwdState extends State<changePwd> {
                   },
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  child: const Text("Update"),
+            Container(
+               margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+               
+               child: MaterialButton(
+                 minWidth: double.infinity,
+                  height: 60,
+                  color: Colors.greenAccent,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50)),
+                  child: const Text(
+                    "Change Password",
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  ),
                   onPressed: () {
                     if(_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();      
@@ -162,7 +268,7 @@ class _changePwdState extends State<changePwd> {
                      // "password": _password
                     };
                     //Exec
-                    http.post(Uri.http(_baseUrl, '/api/users/changePwd'), headers: headers, body: json.encode(userData))
+                    http.post(Uri.http(_baseUrl, '/api/patient/changePwd'), headers: headers, body: json.encode(userData))
                     .then((http.Response response)async{
 
                       if (response.statusCode == 200) {
@@ -179,8 +285,10 @@ class _changePwdState extends State<changePwd> {
                             print(prefs.getString("email"));*/
                         //final myString =prefs.getString("code");
                         
-                       
-                        Navigator.pushReplacementNamed(context, "/home/navTab");
+                       Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NavigationTab()));
 
                       } else if(response.statusCode == 401) {
 
@@ -204,7 +312,7 @@ class _changePwdState extends State<changePwd> {
                 }
                 ),
                  
-          ],
+          
 
               ),
               ],

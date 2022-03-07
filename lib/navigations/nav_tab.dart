@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workshop_sim4/home/changePwd.dart';
 
 import 'package:workshop_sim4/home/home.dart';
+import 'package:workshop_sim4/home/showProfile.dart';
+import 'package:workshop_sim4/home/updateProfile.dart';
+import 'package:workshop_sim4/signin.dart';
 
 
 class NavigationTab extends StatelessWidget {
@@ -13,11 +17,21 @@ class NavigationTab extends StatelessWidget {
       length: 1,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Interx"),
+          title: const Text("Interx",style: TextStyle(
+    color: Colors.white
+  )),
+          
+          backgroundColor: Colors.greenAccent,
+          
+
           bottom: const TabBar(
+            indicatorColor: Colors.white,
             tabs: [
+             
               Tab(
+                
                 icon: Icon(Icons.home),
+                
                 //text: "Mes doses ",
                 
               ),
@@ -30,8 +44,10 @@ class NavigationTab extends StatelessWidget {
         child: Column(
           children: [
             AppBar(
-              title: const Text("Interx"),
+              title: const Text("Your Menu"),
               automaticallyImplyLeading: false,
+              backgroundColor: Color.fromARGB(255, 64, 236, 153),
+              
             ),
             ListTile(
               title: Row(
@@ -44,13 +60,18 @@ class NavigationTab extends StatelessWidget {
                  SizedBox(
                     width: 125,
                   ),
-                  Icon(Icons.arrow_forward_ios),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                  color: Color.fromARGB(255, 64, 236, 153),
+                  ),
+
                   
                 ],
                 
               ),
              onTap: () {
-                Navigator.pushNamed(context, "/home/showProfile");
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => showProfile()));
+                   
               },
             ),
             ListTile(
@@ -64,11 +85,15 @@ class NavigationTab extends StatelessWidget {
                    SizedBox(
                     width: 114,
                   ),
-                  Icon(Icons.arrow_forward_ios),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Color.fromARGB(255, 64, 236, 153),
+                  ),
                 ],
               ),
               onTap: () {
-                Navigator.pushNamed(context, "/home/updateProfile");
+               Navigator.push(context, MaterialPageRoute(builder: (context) => updateProfile()));
+                   
               },
             ),
             ListTile(
@@ -82,11 +107,15 @@ class NavigationTab extends StatelessWidget {
                  SizedBox(
                     width: 90,
                   ),
-                  Icon(Icons.arrow_forward_ios),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Color.fromARGB(255, 64, 236, 153),
+                  ),
                 ],
               ),
               onTap: () {
-                Navigator.pushNamed(context, "/home/changePwd");
+                Navigator.push(context, MaterialPageRoute(builder: (context) => changePwd()));
+                     
               },
             ),
             ListTile(
@@ -100,7 +129,10 @@ class NavigationTab extends StatelessWidget {
                   SizedBox(
                     width: 139,
                   ),
-                  Icon(Icons.arrow_forward_ios),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    color: Color.fromARGB(255, 64, 236, 153),
+                    ),
                 ],
               ),
               onTap: () {
@@ -119,16 +151,18 @@ class NavigationTab extends StatelessWidget {
                    SizedBox(
                     width: 105,
                   ),
-                   Icon(Icons.arrow_forward_ios),
+                   Icon(Icons.arrow_forward_ios,
+                   color: Colors.greenAccent),
                 ],
               ),
               onTap: () async {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.remove("code");
-                final myString =prefs.getString("code");
+                prefs.clear();
+                
                   
-              print(myString);
-                Navigator.pushReplacementNamed(context, "/singin");
+              
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Signin()));
+                     
               },
             )
 
@@ -136,7 +170,9 @@ class NavigationTab extends StatelessWidget {
         ),
       ),
         body: const TabBarView(
+          
           children: [
+            
             Home()
           ],
         ),
