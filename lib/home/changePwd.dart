@@ -39,12 +39,12 @@ class changePwd extends StatefulWidget {
 
 class _changePwdState extends State<changePwd> {
   late String? id;
-  late String? _nom;
-  late String? _prenom;
+  //late String? _nom;
+  //late String? _prenom;
   late String? _email;
   late String? _password;
    late String? _passwordnew;
-    late String? _code;
+   // late String? _code;
    late Future<User> futureuser;
        String oldPwd = '';
 
@@ -57,7 +57,7 @@ class _changePwdState extends State<changePwd> {
       _email =(prefs.getString('email'));
     });
 
-    print("change$oldPwd");
+   // print("change$oldPwd");
   }
    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
@@ -73,7 +73,7 @@ class _changePwdState extends State<changePwd> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        brightness: Brightness.light,
+       // brightness: Brightness.light,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
