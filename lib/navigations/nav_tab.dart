@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workshop_sim4/home/changePwd.dart';
+import 'package:workshop_sim4/home/history.dart';
 
 import 'package:workshop_sim4/home/home.dart';
 import 'package:workshop_sim4/home/showProfile.dart';
@@ -21,24 +22,10 @@ class NavigationTab extends StatelessWidget {
     color: Colors.white
   )),
           
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Color.fromRGBO(29, 170, 63, 1.0),
           
 
-          bottom: const TabBar(
-            indicatorColor: Colors.white,
-            tabs: [
-             
-              Tab(
-                
-                icon: Icon(Icons.home),
-                
-                //text: "Mes doses ",
-                
-              ),
-              
-            
-            ],
-          ),
+          
         ),
         drawer: Drawer(
         child: Column(
@@ -46,7 +33,7 @@ class NavigationTab extends StatelessWidget {
             AppBar(
               title: const Text("Your Menu"),
               automaticallyImplyLeading: false,
-              backgroundColor: Color.fromARGB(255, 64, 236, 153),
+              backgroundColor: Color.fromRGBO(29, 170, 63, 1.0),
               
             ),
             ListTile(
@@ -62,7 +49,7 @@ class NavigationTab extends StatelessWidget {
                   ),
                   Icon(
                     Icons.arrow_forward_ios,
-                  color: Color.fromARGB(255, 64, 236, 153),
+                  color: Color.fromRGBO(29, 170, 63, 1.0),
                   ),
 
                   
@@ -87,7 +74,7 @@ class NavigationTab extends StatelessWidget {
                   ),
                   Icon(
                     Icons.arrow_forward_ios,
-                    color: Color.fromARGB(255, 64, 236, 153),
+                    color: Color.fromRGBO(29, 170, 63, 1.0),
                   ),
                 ],
               ),
@@ -109,7 +96,7 @@ class NavigationTab extends StatelessWidget {
                   ),
                   Icon(
                     Icons.arrow_forward_ios,
-                    color: Color.fromARGB(255, 64, 236, 153),
+                    color: Color.fromRGBO(29, 170, 63, 1.0),
                   ),
                 ],
               ),
@@ -131,12 +118,12 @@ class NavigationTab extends StatelessWidget {
                   ),
                   Icon(
                     Icons.arrow_forward_ios,
-                    color: Color.fromARGB(255, 64, 236, 153),
+                    color: Color.fromRGBO(29, 170, 63, 1.0),
                     ),
                 ],
               ),
               onTap: () {
-               // Navigator.pushNamed(context, "/home/updateUser");
+                Navigator.push(context, MaterialPageRoute(builder: (context) => History()));
               },
             ),
           
@@ -152,7 +139,7 @@ class NavigationTab extends StatelessWidget {
                     width: 105,
                   ),
                    Icon(Icons.arrow_forward_ios,
-                   color: Colors.greenAccent),
+                   color: Color.fromRGBO(29, 170, 63, 1.0)),
                 ],
               ),
               onTap: () async {

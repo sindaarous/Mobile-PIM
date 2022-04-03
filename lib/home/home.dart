@@ -3,6 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workshop_sim4/acceuil.dart';
+import 'package:workshop_sim4/addR.dart';
+import 'package:workshop_sim4/body.dart';
+import 'package:workshop_sim4/home/updateProfile.dart';
 import 'product_info.dart';
 
 Future<User> fetchUser() async {
@@ -111,12 +115,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+   int currentTab = 0;
+  final List<Widget> screens = [AddO(), Body(), Home()];
+
+  final PageStorageBucket bucket = PageStorageBucket();
+  Widget currentScreen = Accueil();
   late String? _email;
   late Future<User> futureUser;
   Future<void> insertSharedPrefs(String id) async {
     await SharedPreferences.getInstance().then((prefs) {
-      //prefs.setString('email', _email!);
-      prefs.setString('id', id);
+      print("here");
+      prefs.setString('email', _email!);
+      //prefs.setString('id', id);
 
       // prefs.setString('email', email)
     });
@@ -131,7 +141,92 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body:
+      
+      PageStorage(bucket: bucket, child: currentScreen),
+      
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        backgroundColor: Colors.green,
+        onPressed: () {
+          setState(() {
+            currentScreen = AddO();
+            currentTab = 2;
+          });
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen = Accueil();
+                        currentTab = 0;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.home,
+                          color: currentTab == 0 ? Colors.green : Colors.grey,
+                        ),
+                        Text(
+                          'Accueil',
+                          style: TextStyle(
+                              color:
+                                  currentTab == 0 ? Colors.green : Colors.grey),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen = Body();
+                        currentTab = 1;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.access_alarms_rounded ,
+                          color: currentTab == 1 ? Colors.green : Colors.grey,
+                        ),
+                        Text(
+                          'Rendez-vous',
+                          style: TextStyle(
+                              color:
+                                  currentTab == 1 ? Colors.green : Colors.grey),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+       /*Center(
            child: FutureBuilder<User>(
           future: futureUser,
           builder: (context, snapshot) {
@@ -159,7 +254,7 @@ class _HomeState extends State<Home> {
             return const CircularProgressIndicator();
             },
           ),
-          ),
+          ),*/
     );
   }
 }

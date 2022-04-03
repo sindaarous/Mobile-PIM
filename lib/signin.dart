@@ -49,6 +49,7 @@ class _SigninState extends State<Signin> {
                 "Login",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
+              
               Text(
                 "Login to your account",
                 style: TextStyle(fontSize: 15, color: Colors.grey[700]),
@@ -60,7 +61,7 @@ class _SigninState extends State<Signin> {
               // child: Image.asset("assets/images/logo.png", width: 460, height: 215)
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(10, 50, 10, 10),
+              margin: const EdgeInsets.fromLTRB(10, 50, 10, 20),
               child: TextFormField(
                 cursorColor: Colors.black,
                 keyboardType: TextInputType.emailAddress,
@@ -68,7 +69,7 @@ class _SigninState extends State<Signin> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -82,7 +83,7 @@ class _SigninState extends State<Signin> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Email"),
                 onSaved: (String? value) {
                   _email = value;
@@ -99,14 +100,14 @@ class _SigninState extends State<Signin> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              margin: const EdgeInsets.fromLTRB(10, 0, 10, 40),
               child: TextFormField(
                  cursorColor: Colors.black,
                 obscureText: true,
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -120,7 +121,7 @@ class _SigninState extends State<Signin> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0),)),
                     labelText: "Mot de passe "),
                 onSaved: (String? value) {
                   _password = value;
@@ -137,11 +138,20 @@ class _SigninState extends State<Signin> {
               ),
             ),
             Container(
-                margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+                margin: const EdgeInsets.fromLTRB(10, 20, 10, 10),
+                padding: EdgeInsets.only(top: 3, left: 3),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border(
+                          bottom: BorderSide(color: Colors.black),
+                          top: BorderSide(color: Colors.black),
+                          left: BorderSide(color: Colors.black),
+                          right: BorderSide(color: Colors.black),
+                        )),
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  color: Colors.greenAccent,
+                  color: Color.fromRGBO(29, 170, 63, 1.0),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
@@ -201,9 +211,12 @@ class _SigninState extends State<Signin> {
                   },
                 )),
             Column(
+              
               children: <Widget>[
                 Row(
+                  
                   mainAxisAlignment: MainAxisAlignment.center,
+                  
                   children: <Widget>[
                     Text("Don't have an account?"),
                   ],
@@ -212,12 +225,22 @@ class _SigninState extends State<Signin> {
             ),
             Container(
                 margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
+                decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border(
+                          bottom: BorderSide(color: Colors.black),
+                          top: BorderSide(color: Colors.black),
+                          left: BorderSide(color: Colors.black),
+                          right: BorderSide(color: Colors.black),
+                        )),
                 child: SizedBox(
                     height: 50,
                     width: 60,
+                    
                     child: MaterialButton(
                       minWidth: double.infinity,
                       color: Colors.white,
+                      
                       child: const Text(
                         "Register",
                         style: TextStyle(
