@@ -62,28 +62,27 @@ class _HistoryState extends State<History> {
         var minuteReservation = int.parse(time.toString().substring(3, 5));
 
         print(dateNow);
-        print(dateyear);
+        print("dateyear$dateyear");
         print("datemonth$datemonth");
-        print(dateday);
+        print("dateday$dateday");
 
-        print(dateyearNow);
-        print(datemonthNow);
-        print(datedayNow);
+        print("dateyearnow$dateyearNow");
+        print("datemonthnow$datemonthNow");
+        print("datedaynow$datedayNow");
 
-        print(dateheureNow);
-        print(dateminuteNow);
+        print("dateheurnow$dateheureNow");
+        print("dateminutenow$dateminuteNow");
 
-        print(heureReservation);
-        print(minuteReservation);
-
-        if (((dateyear == dateyearNow) || (dateyear < dateyearNow)) &&
-            ((datemonth == datemonthNow) || (datemonth < datemonthNow)) &&
-            ((dateday == datedayNow) || (dateday < datedayNow)) &&
-            ((dateheureNow == heureReservation) ||
-                (heureReservation < dateheureNow)) &&
-            ((dateminuteNow == minuteReservation) ||
-                (minuteReservation < dateminuteNow))) {
-          if (item['user'] == _user) {
+        print("heurereservation$heureReservation");
+        print("minutereservation$minuteReservation");
+        if (item['user'] == _user ) {
+          if (((dateyear == dateyearNow) || (dateyear < dateyearNow)) &&
+              ((datemonth == datemonthNow) || (datemonth < datemonthNow)) &&
+              ((dateday == datedayNow) || (dateday < datedayNow)) &&
+              ((dateheureNow == heureReservation) ||
+                  (heureReservation < dateheureNow)) &&
+              ((dateminuteNow == minuteReservation) ||
+                  (minuteReservation < dateminuteNow))) {
             _reservs.add(ReservationData(
                 item['_id'], item['date'], item['heure'], item['result']));
             String _baseUrl = "localhost:9091";
@@ -97,14 +96,14 @@ class _HistoryState extends State<History> {
               // "password": _password
             };
             http
-                .put(Uri.http(_baseUrl, '/api/reservations/updateHistory'),
+                .put(Uri.http(_baseUrl, 'api/reservations/updateHistory'),
                     headers: headers, body: json.encode(userData))
                 .then((http.Response response) async {
               if (response.statusCode == 200) {
                 print("c bon ");
               }
             });
-            // print(datte);
+            // print(datte)
           }
         }
       }

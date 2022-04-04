@@ -45,7 +45,7 @@ class _BodyState extends State<Body> {
       var dateReservation = item['date'];
         var dateNow = DateTime.now();
         var time = item['heure'];
-        int datemonthR;
+        //int datemonthR;
         //variable reservation
         var dateyear = int.parse(dateReservation.toString().substring(0, 4));
         var datemonth = int.parse(dateReservation.toString().substring(5, 7));
@@ -62,19 +62,19 @@ class _BodyState extends State<Body> {
         var minuteReservation = int.parse(time.toString().substring(3, 5));
 
         print(dateNow);
-        print(dateyear);
+       print("dateyear$dateyear");
         print("datemonth$datemonth");
-        print(dateday);
+        print("dateday$dateday");
 
-        print(dateyearNow);
-        print(datemonthNow);
-        print(datedayNow);
+        print("dateyearnow$dateyearNow");
+        print("datemonthnow$datemonthNow");
+        print("datedaynow$datedayNow");
 
-        print(dateheureNow);
-        print(dateminuteNow);
+        print("dateheurnow$dateheureNow");
+        print("dateminutenow$dateminuteNow");
 
-        print(heureReservation);
-        print(minuteReservation);
+        print("heurereservation$heureReservation");
+        print("minutereservation$minuteReservation");
 
         if (((dateyear == dateyearNow) || (dateyear < dateyearNow)) &&
             ((datemonth == datemonthNow) || (datemonth < datemonthNow)) &&
@@ -83,6 +83,7 @@ class _BodyState extends State<Body> {
                 (heureReservation < dateheureNow)) &&
             ((dateminuteNow == minuteReservation) ||
                 (minuteReservation < dateminuteNow))) {
+                  print("here");
             String _baseUrl = "localhost:9091";
             //Headers
             Map<String, String> headers = {
@@ -94,7 +95,7 @@ class _BodyState extends State<Body> {
               // "password": _password
             };
             http
-                .put(Uri.http(_baseUrl, '/api/reservations/updateHistory'),
+                .put(Uri.http(_baseUrl, 'api/reservations/updateHistory'),
                     headers: headers, body: json.encode(userData))
                 .then((http.Response response) async {
               if (response.statusCode == 200) {

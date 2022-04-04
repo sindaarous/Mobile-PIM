@@ -84,6 +84,7 @@ class _RegisterState extends State<AddO> {
       print("email$_email");
       _user = (prefs.getString('id') ?? '');
       print(_firstname);
+      _phone = (prefs.getString('phone') ?? '');
     });
   }
 
@@ -201,7 +202,8 @@ class _RegisterState extends State<AddO> {
                                   "user": _user,
                                   "adresse":_hospital,
                                   "hospital":_idH,
-                                  "email":_email
+                                  "email":_email,
+                                  "phone":_phone,
                                 };
 
                                 Map<String, String> headers = {
