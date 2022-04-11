@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:html';
 import 'dart:developer';
+
+import 'navigations/nav_tab user.dart';
 import 'navigations/nav_tab.dart';
 import 'signup.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +51,6 @@ class _SigninState extends State<Signin> {
                 "Login",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-              
               Text(
                 "Login to your account",
                 style: TextStyle(fontSize: 15, color: Colors.grey[700]),
@@ -83,7 +84,8 @@ class _SigninState extends State<Signin> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Email"),
                 onSaved: (String? value) {
                   _email = value;
@@ -102,7 +104,7 @@ class _SigninState extends State<Signin> {
             Container(
               margin: const EdgeInsets.fromLTRB(10, 0, 10, 40),
               child: TextFormField(
-                 cursorColor: Colors.black,
+                cursorColor: Colors.black,
                 obscureText: true,
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
@@ -121,7 +123,9 @@ class _SigninState extends State<Signin> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0),)),
+                        borderSide: BorderSide(
+                      color: Color.fromRGBO(29, 170, 63, 1.0),
+                    )),
                     labelText: "Mot de passe "),
                 onSaved: (String? value) {
                   _password = value;
@@ -140,14 +144,14 @@ class _SigninState extends State<Signin> {
             Container(
                 margin: const EdgeInsets.fromLTRB(10, 20, 10, 10),
                 padding: EdgeInsets.only(top: 3, left: 3),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border(
-                          bottom: BorderSide(color: Colors.black),
-                          top: BorderSide(color: Colors.black),
-                          left: BorderSide(color: Colors.black),
-                          right: BorderSide(color: Colors.black),
-                        )),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border(
+                      bottom: BorderSide(color: Colors.black),
+                      top: BorderSide(color: Colors.black),
+                      left: BorderSide(color: Colors.black),
+                      right: BorderSide(color: Colors.black),
+                    )),
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
@@ -182,13 +186,66 @@ class _SigninState extends State<Signin> {
                         if (response.statusCode == 200) {
                           SharedPreferences prefs =
                               await SharedPreferences.getInstance();
-                           prefs.setString("email", userData["email"]);
-                           
-                          final myString = prefs.getString("email");
+                          prefs.setString("email", userData["email"]);
+                          // prefs.setString("password", userData["password"]);
+                          Map<String, dynamic> res = json.decode(response.body);
+                          if (res['role'] == "user") {
+                            var userId = res['_id'];
+                            var usermail = res['email'];
+                            var userPwd = res['password'];
+                            var firsrname = res['firstname'];
+                            var lastname = res['lastname'];
+                            var age = res['age'];
+                            var gender = res['gender'];
+                            var phone = res['phone'];
+                            var situationF = res['situationF'];
+                            final myString = prefs.getString("email");
+                            prefs.setString("id", userId);
+                            prefs.setString("email", usermail);
+                            prefs.setString("password", userPwd);
+                            prefs.setString("firstname", firsrname);
+                            prefs.setString("lastname", lastname);
+                            prefs.setString("age", age);
+                            prefs.setString("gender", gender);
+                            prefs.setString("phone", phone);
+                            prefs.setString("situationF", situationF);
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavigationTabUser()));
+                          } else {
+                            var userId = res['_id'];
+                            var usermail = res['email'];
+                            var userPwd = res['password'];
+                            var firsrname = res['firstname'];
+                            var lastname = res['lastname'];
+                            var adresse = res['adresse'];
+                            var birthday = res['birthday'];
+                            var phone = res['phone'];
+                            var GroupeSanguine = res['GroupeSanguine'];
+                            var situationF = res['situationF'];
+                            final myString = prefs.getString("email");
+                            prefs.setString("id", userId);
+                            prefs.setString("email", usermail);
+                            prefs.setString("password", userPwd);
+                            prefs.setString("firstname", firsrname);
+                            prefs.setString("lastname", lastname);
+                            prefs.setString("adresse", adresse);
+                            prefs.setString("birthday", birthday);
+                            prefs.setString("phone", phone);
+                            prefs.setString("GroupeSanguine", GroupeSanguine);
+                            prefs.setString("situationF", situationF);
+
+
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NavigationTab()));
+                          }
 
                           print("signin c bon");
-                         Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationTab()));
-                     
+
+                         
                         } else if (response.statusCode == 401) {
                           showDialog(
                             context: context,
@@ -211,12 +268,9 @@ class _SigninState extends State<Signin> {
                   },
                 )),
             Column(
-              
               children: <Widget>[
                 Row(
-                  
                   mainAxisAlignment: MainAxisAlignment.center,
-                  
                   children: <Widget>[
                     Text("Don't have an account?"),
                   ],
@@ -226,21 +280,19 @@ class _SigninState extends State<Signin> {
             Container(
                 margin: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                 decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border(
-                          bottom: BorderSide(color: Colors.black),
-                          top: BorderSide(color: Colors.black),
-                          left: BorderSide(color: Colors.black),
-                          right: BorderSide(color: Colors.black),
-                        )),
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border(
+                      bottom: BorderSide(color: Colors.black),
+                      top: BorderSide(color: Colors.black),
+                      left: BorderSide(color: Colors.black),
+                      right: BorderSide(color: Colors.black),
+                    )),
                 child: SizedBox(
                     height: 50,
                     width: 60,
-                    
                     child: MaterialButton(
                       minWidth: double.infinity,
                       color: Colors.white,
-                      
                       child: const Text(
                         "Register",
                         style: TextStyle(

@@ -17,8 +17,7 @@ class AddO extends StatefulWidget {
 }
 
 class _RegisterState extends State<AddO> {
-    late Future<bool> fetchedReservs;
-  
+  late Future<bool> fetchedReservs;
 
   // ignore: unused_field
   String _firstname = "";
@@ -28,8 +27,8 @@ class _RegisterState extends State<AddO> {
   String _time = "09:00";
   String _hospital = "";
   String _user = "";
-  String _idH="";
-  String _email="";
+  String _idH = "";
+  String _email = "";
   final List<HospitalData> hopital = [];
   //final hopital = [];
   final heure = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00'];
@@ -42,27 +41,27 @@ class _RegisterState extends State<AddO> {
     List<dynamic> reservsFromServer = json.decode(response.body);
     if (response != "") {
       for (var item in reservsFromServer) {
-        String hos =  item['addresseHospital'] +" , "+item['nomHospital'];
-       
+        String hos = item['addresseHospital'] + " , " + item['nomHospital'];
+
         hopital.add(HospitalData(
-          item['_id'],item['addresseHospital'] ,item['nomHospital']));
-            
+            item['_id'], item['addresseHospital'], item['nomHospital']));
       }
     }
     return true;
   }
- @override
+
+  @override
   void initState() {
     super.initState();
     fetchedReservs = getReservs();
-    
+
     _loadCounter();
   }
+
   String getText() {
     if (date == null) {
       return 'Select Date';
     } else {
-      
       _date = DateFormat('yyyy-MM-dd HH:mm:ss.SSS').format(date!);
       print("date:$date");
       return DateFormat('MM/dd/yyyy').format(date!);
@@ -74,13 +73,13 @@ class _RegisterState extends State<AddO> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final String _baseUrl = "localhost:9091";
- 
+
   _loadCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       _firstname = (prefs.getString('firstname') ?? '');
       _lastname = (prefs.getString('lastname') ?? '');
-      _email= (prefs.getString('email')?? '');
+      _email = (prefs.getString('email') ?? '');
       print("email$_email");
       _user = (prefs.getString('id') ?? '');
       print(_firstname);
@@ -102,15 +101,15 @@ class _RegisterState extends State<AddO> {
               child: Column(
                 children: [
                   Container(
-                  
                     decoration: BoxDecoration(
                       color: Colors.deepPurple.shade50,
                       shape: BoxShape.circle,
                     ),
-                    child: Image.asset('/no_history_ilustration.png',width: 200,
-                                        height: 200,
-                                       ),
-
+                    child: Image.asset(
+                      '/no_history_ilustration.png',
+                      width: 200,
+                      height: 200,
+                    ),
                   ),
                   SizedBox(
                     height: 24,
@@ -122,9 +121,8 @@ class _RegisterState extends State<AddO> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  
                   Container(
-                     margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                    margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -132,7 +130,6 @@ class _RegisterState extends State<AddO> {
                     ),
                     child: Column(
                       children: [
-                       
                         ButtonHeaderWidget(
                           title: 'Date',
                           text: getText(),
@@ -145,7 +142,8 @@ class _RegisterState extends State<AddO> {
                               width: 2,
                             ),
                             Container(
-                               margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                margin:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 10),
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colors.black12),
                                     borderRadius: BorderRadius.circular(10)),
@@ -165,25 +163,23 @@ class _RegisterState extends State<AddO> {
                                     borderRadius: BorderRadius.circular(10)),
                                 child: DropdownButtonHideUnderline(
                                   child: DropdownButton<HospitalData>(
-                                      items: hopital.map((hopital) {
-                                        return DropdownMenuItem(
-                                            value: hopital, child: Text(hopital.toString()));
-                                      }).toList(),
-                                      
-                                     onChanged: (newValue){
-                                       print("new value : $newValue");
-                                       setState(() {
+                                    items: hopital.map((hopital) {
+                                      return DropdownMenuItem(
+                                          value: hopital,
+                                          child: Text(hopital.toString()));
+                                    }).toList(),
+                                    onChanged: (newValue) {
+                                      print("new value : $newValue");
+                                      setState(() {
                                         _hospital = newValue!.addresseHospital;
                                         _idH = newValue.id;
                                         print("new value : $_idH");
-                                       });
-                                     },
-                                     ),
+                                      });
+                                    },
+                                  ),
                                 )),
                           ],
                         ),
-                       
-                       
                         SizedBox(
                           height: 22,
                         ),
@@ -200,10 +196,10 @@ class _RegisterState extends State<AddO> {
                                   "date": _date,
                                   "heure": _time,
                                   "user": _user,
-                                  "adresse":_hospital,
-                                  "hospital":_idH,
-                                  "email":_email,
-                                  "phone":_phone,
+                                  "adresse": _hospital,
+                                  "hospital": _idH,
+                                  "email": _email,
+                                  "phone": _phone,
                                 };
 
                                 Map<String, String> headers = {
@@ -218,6 +214,22 @@ class _RegisterState extends State<AddO> {
                                         headers: headers,
                                         body: json.encode(userData))
                                     .then((http.Response response) {
+                                 /* Map<String, dynamic> userDataP = {
+                                    "firstname": _firstname,
+                                    "lastname": _lastname,
+                                  };
+                                    Map<String, String> headersP = {
+                                  "Content-Type":
+                                      "application/json; charset=UTF-8"
+                                };
+
+                                http
+                                    .post(
+                                        Uri.http(_baseUrl,
+                                            "/api/prelevements/initprelevement"),
+                                        headers: headers,
+                                        body: json.encode(userData))
+                                    .then((http.Response response) {});*/
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(

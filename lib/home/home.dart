@@ -7,6 +7,7 @@ import 'package:workshop_sim4/acceuil.dart';
 import 'package:workshop_sim4/addR.dart';
 import 'package:workshop_sim4/body.dart';
 import 'package:workshop_sim4/home/updateProfile.dart';
+import '../bodytous.dart';
 import 'product_info.dart';
 
 Future<User> fetchUser() async {
@@ -135,7 +136,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    futureUser = fetchUser();
+   // futureUser = fetchUser();
   }
 
   @override
@@ -144,17 +145,6 @@ class _HomeState extends State<Home> {
       body:
       
       PageStorage(bucket: bucket, child: currentScreen),
-      
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        backgroundColor: Colors.green,
-        onPressed: () {
-          setState(() {
-            currentScreen = AddO();
-            currentTab = 2;
-          });
-        },
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
@@ -200,7 +190,7 @@ class _HomeState extends State<Home> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Body();
+                        currentScreen = BodyTous();
                         currentTab = 1;
                       });
                     },
