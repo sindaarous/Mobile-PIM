@@ -1,10 +1,13 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_verification_ui/category_list.dart';
-import 'package:flutter_otp_verification_ui/schedule_card.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'CategoryList.dart';
+import 'ScheduleCard.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -13,16 +16,20 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   final String _baseUrl = 'localhost:9091';
-  Future<bool> fetchedReservs;
+  late Future<bool> fetchedReservs;
   final List<ReservationData> _reservs = [];
 
   //Actions
   Future<bool> getReservs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    var _user = prefs.getString('id');
+    // print("body$_user");
     http.Response response =
         await http.get(Uri.http(_baseUrl, "api/reservations/allReser"));
     List<dynamic> reservsFromServer = json.decode(response.body);
     for (var item in reservsFromServer) {
-      if (item['_id'] == "62006817392a56475c9541ed") {
+      if (item['user'] == _user.toString()) {
         _reservs.add(ReservationData(
             item['_id'], item['date'], item['heure'], item['result']));
         log(item['_id']);
@@ -93,6 +100,6 @@ class ReservationData {
   ReservationData(this.id, this.date, this.heure, this.result);
   @override
   String toString() {
-    return 'GameData{title: $date, image: $heure, description: $result}';
+    return 'ReservationData{title: $date, image: $heure, description: $result}';
   }
 }

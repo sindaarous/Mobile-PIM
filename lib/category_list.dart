@@ -13,7 +13,7 @@ class _CategoryListState extends State<CategoryList> {
     return Container(
         margin: EdgeInsets.symmetric(vertical: 20.0 / 2),
         height: 30,
-        child: Text("Vous avez aucun rendez-vous traité",
+        child: Text("La liste des votre rendez vous",
             style: TextStyle(color: Color.fromARGB(255, 10, 10, 10))));
   }
 }
