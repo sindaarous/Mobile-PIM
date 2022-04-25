@@ -34,7 +34,7 @@ dependencies:
   flutter_polyline_points: ^0.2.6
   google_maps_flutter: ^2.0.2
   intl: ^0.17.0
-  date_picker_timeline:
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,11 +43,7 @@ dependencies:
   http: ^0.13.3
   shared_preferences: ^2.0.12
   syncfusion_flutter_datepicker: ^19.4.56
-  get_storage:
-  get:
-  flutter_local_notifications:
-  flutter_native_timezone:
-  google_fonts:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

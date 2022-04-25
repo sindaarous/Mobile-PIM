@@ -147,7 +147,7 @@ class _updateProfileState extends State<updateProfile> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -161,7 +161,7 @@ class _updateProfileState extends State<updateProfile> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "First Name"),
                 onSaved: (String? value) {
                   _firstname = value;
@@ -184,7 +184,7 @@ class _updateProfileState extends State<updateProfile> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -198,7 +198,7 @@ class _updateProfileState extends State<updateProfile> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Last Name "),
                 onSaved: (String? value) {
                   _lastname = value;
@@ -222,7 +222,7 @@ class _updateProfileState extends State<updateProfile> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -236,7 +236,7 @@ class _updateProfileState extends State<updateProfile> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Email"),
                 onSaved: (String? value) {
                   _email = value;
@@ -261,7 +261,7 @@ class _updateProfileState extends State<updateProfile> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -275,7 +275,7 @@ class _updateProfileState extends State<updateProfile> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Adresse"),
                 onSaved: (String? value) {
                   _adresse = value;
@@ -298,7 +298,7 @@ class _updateProfileState extends State<updateProfile> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -312,7 +312,7 @@ class _updateProfileState extends State<updateProfile> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Birthday"),
                 onSaved: (String? value) {
                   _birthday = value;
@@ -335,7 +335,7 @@ class _updateProfileState extends State<updateProfile> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -349,7 +349,7 @@ class _updateProfileState extends State<updateProfile> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Phone Number"),
                 onSaved: (String? value) {
                   _phone = value;
@@ -374,10 +374,10 @@ class _updateProfileState extends State<updateProfile> {
                         itemHeight: 50.0,
                         decoration: InputDecoration(
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.greenAccent),
+                            borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0)),
                           ),
                           border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.greenAccent),
+                            borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0)),
                           ),
                           prefixIcon: Icon(
                             Icons.bloodtype,
@@ -434,7 +434,7 @@ class _updateProfileState extends State<updateProfile> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -448,7 +448,7 @@ class _updateProfileState extends State<updateProfile> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Situation Familiale"),
                 onSaved: (String? value) {
                   _situationF = value;
@@ -467,7 +467,7 @@ class _updateProfileState extends State<updateProfile> {
               child: MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  color: Colors.greenAccent,
+                  color: Color.fromRGBO(29, 170, 63, 1.0),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),

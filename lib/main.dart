@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:workshop_sim4/calendar/theme.dart';
 import 'package:workshop_sim4/home/changePwd.dart';
 import 'package:workshop_sim4/home/updateProfile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:workshop_sim4/services/theme_services.dart';
 import 'home/showProfile.dart';
 //import 'navigations/nav_bottom.dart';
 import 'navigations/nav_tab.dart';
@@ -15,17 +11,12 @@ import 'home/home.dart';
 import 'splash_screen.dart';
 import 'package:flutter/material.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await GetStorage.init();
-
-  runApp(GetMaterialApp(
+void main() {
+  runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: NavigationTab(),
+    home: MyApp(),
     title: 'Interx',
-    theme: Themes.light,
-    darkTheme: Themes.dark,
-    themeMode: ThemeService().theme,
+    theme: ThemeData(primaryColor:Color.fromRGBO(29, 170, 63, 1.0)),
   ));
 }
 
@@ -62,10 +53,12 @@ class MyApp extends StatelessWidget {
               ),
               Container(
                 child: Image.asset(
-                  '/illustration.png',
-                  width: 300,
-                  height: 250,
-                ),
+                                        '/illustration.png',
+                                        width: 300,
+                                        height: 250,
+                                       
+
+                                      ),
               ),
               Column(
                 children: <Widget>[

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workshop_sim4/GooleMappps.dart';
 import 'package:workshop_sim4/body.dart';
-import 'package:workshop_sim4/services/theme_services.dart';
-
-import 'calendar/calendar.dart';
 
 class Accueil extends StatefulWidget {
   @override
@@ -14,7 +11,9 @@ class _AccueilState extends State<Accueil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CalenderPage(),
+
+      body: GooleMappps(),
+      
     );
   }
 }

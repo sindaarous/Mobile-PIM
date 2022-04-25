@@ -122,7 +122,7 @@ class _changePwdState extends State<changePwd> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -161,7 +161,7 @@ class _changePwdState extends State<changePwd> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -175,7 +175,7 @@ class _changePwdState extends State<changePwd> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                      labelText: "Old password"),
                     onSaved: (String? value) {
                   _password = value;
@@ -199,7 +199,7 @@ class _changePwdState extends State<changePwd> {
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
-                        color: Colors.greenAccent,
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
                       ),
                     ),
                     prefixIcon: const Icon(
@@ -214,7 +214,7 @@ class _changePwdState extends State<changePwd> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.greenAccent)),
+                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "New Password"), onSaved: (String? value) {
                   _passwordnew = value;
                 },
@@ -234,7 +234,7 @@ class _changePwdState extends State<changePwd> {
                child: MaterialButton(
                  minWidth: double.infinity,
                   height: 60,
-                  color: Colors.greenAccent,
+                  color: Color.fromRGBO(29, 170, 63, 1.0),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
