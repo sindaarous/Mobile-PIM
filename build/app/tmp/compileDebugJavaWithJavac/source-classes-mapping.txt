@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/cross/flutter/workshop_sim4/BuildConfig.java
+ com.cross.flutter.workshop_sim4.BuildConfig

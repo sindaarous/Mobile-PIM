@@ -1,5 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cross.flutter.workshop_sim4">
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
    <application
         android:label="workshop_sim4"
         android:icon="@mipmap/ic_launcher">
@@ -37,8 +42,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data android:name="mapbox_access_token" android:value="pk.eyJ1IjoiamloZW5nYWJzaSIsImEiOiJjbDI5MzB1eW8wMDh3M2RvNDlvNjBicTNoIn0.C2U9FyDJ0zTlbVe9tQ8Jmw" />
         <meta-data 
         android:name="com.google.android.geo.API_KEY" 
-        android:value="AIzaSyAHaOGYlnjsXN7CpDDthI1hsCU8Cal6408"/>
+        android:value="AIzaSyBMIdttmrLG1Lie-TB1VaxKQ3IhwVX1jtk"/>
     </application>
 </manifest>

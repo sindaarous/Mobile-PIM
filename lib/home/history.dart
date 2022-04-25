@@ -75,7 +75,7 @@ class _HistoryState extends State<History> {
 
         print("heurereservation$heureReservation");
         print("minutereservation$minuteReservation");
-        if (item['user'] == _user ) {
+        if (item['user'] == _user) {
           if (((dateyear == dateyearNow) || (dateyear < dateyearNow)) &&
               ((datemonth == datemonthNow) || (datemonth < datemonthNow)) &&
               ((dateday == datedayNow) || (dateday < datedayNow)) &&

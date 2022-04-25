@@ -298,7 +298,7 @@ class _SignupState extends State<Signup> {
                   _phone = value;
                 },
                 validator: (String? value) {
-                  if (value!.isEmpty || value.length == 7) {
+                  if (value!.isEmpty || value.length == 8) {
                     return "Le numéro doit avoir 8 caractères !";
                   } else {
                     return null;

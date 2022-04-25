@@ -1,8 +1,5 @@
 import 'dart:convert';
-import 'dart:html';
 import 'dart:developer';
-
-import 'navigations/nav_tab user.dart';
 import 'navigations/nav_tab.dart';
 import 'signup.dart';
 import 'package:flutter/material.dart';
@@ -187,65 +184,14 @@ class _SigninState extends State<Signin> {
                           SharedPreferences prefs =
                               await SharedPreferences.getInstance();
                           prefs.setString("email", userData["email"]);
-                          // prefs.setString("password", userData["password"]);
-                          Map<String, dynamic> res = json.decode(response.body);
-                          if (res['role'] == "user") {
-                            var userId = res['_id'];
-                            var usermail = res['email'];
-                            var userPwd = res['password'];
-                            var firsrname = res['firstname'];
-                            var lastname = res['lastname'];
-                            var age = res['age'];
-                            var gender = res['gender'];
-                            var phone = res['phone'];
-                            var situationF = res['situationF'];
-                            final myString = prefs.getString("email");
-                            prefs.setString("id", userId);
-                            prefs.setString("email", usermail);
-                            prefs.setString("password", userPwd);
-                            prefs.setString("firstname", firsrname);
-                            prefs.setString("lastname", lastname);
-                            prefs.setString("age", age);
-                            prefs.setString("gender", gender);
-                            prefs.setString("phone", phone);
-                            prefs.setString("situationF", situationF);
-                             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => NavigationTabUser()));
-                          } else {
-                            var userId = res['_id'];
-                            var usermail = res['email'];
-                            var userPwd = res['password'];
-                            var firsrname = res['firstname'];
-                            var lastname = res['lastname'];
-                            var adresse = res['adresse'];
-                            var birthday = res['birthday'];
-                            var phone = res['phone'];
-                            var GroupeSanguine = res['GroupeSanguine'];
-                            var situationF = res['situationF'];
-                            final myString = prefs.getString("email");
-                            prefs.setString("id", userId);
-                            prefs.setString("email", usermail);
-                            prefs.setString("password", userPwd);
-                            prefs.setString("firstname", firsrname);
-                            prefs.setString("lastname", lastname);
-                            prefs.setString("adresse", adresse);
-                            prefs.setString("birthday", birthday);
-                            prefs.setString("phone", phone);
-                            prefs.setString("GroupeSanguine", GroupeSanguine);
-                            prefs.setString("situationF", situationF);
 
+                          final myString = prefs.getString("email");
 
-                             Navigator.push(
+                          print("signin c bon");
+                          Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => NavigationTab()));
-                          }
-
-                          print("signin c bon");
-
-                         
                         } else if (response.statusCode == 401) {
                           showDialog(
                             context: context,

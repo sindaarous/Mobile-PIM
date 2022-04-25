@@ -1,0 +1,4 @@
+#Mon Apr 11 12:16:06 BST 2022
+base.0=D\:\\pim\\Mobile\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

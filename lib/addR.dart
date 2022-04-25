@@ -9,7 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:workshop_sim4/navigations/nav_tab.dart';
 
 class AddO extends StatefulWidget {
-  const AddO({Key? key}) : super(key: key);
+  const AddO({required String name});
   final String _baseUrl = "localhost:9091";
 
   @override
@@ -31,11 +31,13 @@ class _RegisterState extends State<AddO> {
   String _email = "";
   final List<HospitalData> hopital = [];
   //final hopital = [];
-  final heure = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '12:00'];
+  final heure = ["09:00"];
   late DateTime? date = DateTime.now();
 
   Future<bool> getReservs() async {
     print("here");
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
     http.Response response =
         await http.get(Uri.http(_baseUrl, "/api/hospital/all"));
     List<dynamic> reservsFromServer = json.decode(response.body);
@@ -76,14 +78,17 @@ class _RegisterState extends State<AddO> {
 
   _loadCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    _idH = prefs.getString('address')!;
+    print(_idH);
     setState(() {
       _firstname = (prefs.getString('firstname') ?? '');
       _lastname = (prefs.getString('lastname') ?? '');
       _email = (prefs.getString('email') ?? '');
+      _hospital = (prefs.getString('address') ?? '');
+      _idH = (prefs.getString('idHospital') ?? '');
       print("email$_email");
       _user = (prefs.getString('id') ?? '');
-      print(_firstname);
-      _phone = (prefs.getString('phone') ?? '');
+      print(_hospital);
     });
   }
 
@@ -157,6 +162,7 @@ class _RegisterState extends State<AddO> {
                             SizedBox(
                               width: 50,
                             ),
+                            /*
                             Container(
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colors.black12),
@@ -178,6 +184,7 @@ class _RegisterState extends State<AddO> {
                                     },
                                   ),
                                 )),
+                                */
                           ],
                         ),
                         SizedBox(
@@ -196,10 +203,10 @@ class _RegisterState extends State<AddO> {
                                   "date": _date,
                                   "heure": _time,
                                   "user": _user,
-                                  "adresse": _hospital,
-                                  "hospital": _idH,
-                                  "email": _email,
-                                  "phone": _phone,
+                                  "adresse":
+                                      "Hôpital régional Taher Maamouri Nabeul",
+                                  "hospital": "62655736955589ea4ac8a415",
+                                  "email": _email
                                 };
 
                                 Map<String, String> headers = {
@@ -214,22 +221,6 @@ class _RegisterState extends State<AddO> {
                                         headers: headers,
                                         body: json.encode(userData))
                                     .then((http.Response response) {
-                                 /* Map<String, dynamic> userDataP = {
-                                    "firstname": _firstname,
-                                    "lastname": _lastname,
-                                  };
-                                    Map<String, String> headersP = {
-                                  "Content-Type":
-                                      "application/json; charset=UTF-8"
-                                };
-
-                                http
-                                    .post(
-                                        Uri.http(_baseUrl,
-                                            "/api/prelevements/initprelevement"),
-                                        headers: headers,
-                                        body: json.encode(userData))
-                                    .then((http.Response response) {});*/
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
