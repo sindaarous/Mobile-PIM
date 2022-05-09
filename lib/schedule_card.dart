@@ -9,7 +9,7 @@ import 'package:workshop_sim4/body.dart';
 import 'package:workshop_sim4/home/home.dart';
 import 'package:workshop_sim4/navigations/nav_tab.dart';
 
-
+import 'calendar/theme.dart';
 
 class ScheduleCard extends StatelessWidget {
   final String _id;
@@ -41,7 +41,7 @@ class ScheduleCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    _date.substring(0,10),
+                    _date.substring(0, 10),
                     style: TextStyle(
                       color: Colors.green,
                       fontSize: 16,
@@ -59,73 +59,47 @@ class ScheduleCard extends StatelessWidget {
                 ],
               ),
             ),
-            title: Text(
-              "Rendez-vous",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color(0xff1E1C61),
-              ),
-            ),
-            subtitle: Text(
-              _result,
-              style: TextStyle(
-                color: Color(0xff1E1C61).withOpacity(0.7),
-              ),
-            ),
+            title: Text("Rendez-vous", style: subHeadingStyle),
+            subtitle: Text(_result, style: subHeadingStyle),
             trailing: Container(
-              
                 child: Column(children: <Widget>[
-                  
               ElevatedButton(
                 onPressed: () {
-  
-                  
-                      //URL
-                      String _baseUrl = "localhost:9091";
-                      //Headers
-                      Map<String, String> headers = {
-                        "Content-Type": "application/json; charset=UTF-8"
-                      };
-                      //Body
-                      Map<String, dynamic> userData = {
-                        "_id": _id,
-                       
-                      };
-                      //Exec
-                      http
-                          .put(Uri.http(_baseUrl, '/api/reservations/deleteReser'),
-                              headers: headers, body: json.encode(userData))
-                          .then((http.Response response) async {
-                        if (response.statusCode == 200) {
-                           Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationTab()));
-                     
-                          print("delete c bon");
-                       
-                     
-                        }    
-                         else {}
-                      });
-                    
-                  },
-                
-                      
-                    
-                
-                        
+                  //URL
+                  String _baseUrl = "localhost:9091";
+                  //Headers
+                  Map<String, String> headers = {
+                    "Content-Type": "application/json; charset=UTF-8"
+                  };
+                  //Body
+                  Map<String, dynamic> userData = {
+                    "_id": _id,
+                  };
+                  //Exec
+                  http
+                      .put(Uri.http(_baseUrl, '/api/reservations/deleteReser'),
+                          headers: headers, body: json.encode(userData))
+                      .then((http.Response response) async {
+                    if (response.statusCode == 200) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NavigationTab()));
+
+                      print("delete c bon");
+                    } else {}
+                  });
+                },
                 child: Icon(
                   Icons.delete_forever_sharp,
                   color: Colors.black26,
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
-                  shape: CircleBorder(),
-                 // padding: EdgeInsets.all(14),
-                  minimumSize: Size(100, 40)
-                  
-                ),
-                
+                    primary: Colors.green,
+                    shape: CircleBorder(),
+                    // padding: EdgeInsets.all(14),
+                    minimumSize: Size(100, 40)),
               ),
-              
             ]))),
       ),
     );

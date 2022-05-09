@@ -1,16 +1,23 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workshop_sim4/acceuil.dart';
 import 'package:workshop_sim4/button_widget.dart';
+import 'package:workshop_sim4/consts.dart';
 import 'package:workshop_sim4/home/home.dart';
 import 'package:intl/intl.dart';
 import 'package:workshop_sim4/navigations/nav_tab.dart';
 
+import 'calendar/theme.dart';
+
 class AddO extends StatefulWidget {
-  const AddO({required String name});
-  final String _baseUrl = "localhost:9091";
+  const AddO({Key? key, required this.bodyid, required this.bodyname})
+      : super(key: key);
+  // const AddO({String? bodyname, String? bodyid});
+  final String bodyname;
+  final String bodyid;
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -18,54 +25,36 @@ class AddO extends StatefulWidget {
 
 class _RegisterState extends State<AddO> {
   late Future<bool> fetchedReservs;
+  final List<HospitalData> _reservs = [];
 
   // ignore: unused_field
   String _firstname = "";
   String _lastname = "";
-  String _phone = "";
   String _date = "";
   String _time = "09:00";
   String _hospital = "";
   String _user = "";
   String _idH = "";
   String _email = "";
+
   final List<HospitalData> hopital = [];
   //final hopital = [];
-  final heure = ["09:00"];
+  List<String> heure = ["09:00", "10:00", "11:00", "11:00", "12:00", "13:00"];
   late DateTime? date = DateTime.now();
-
-  Future<bool> getReservs() async {
-    print("here");
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    http.Response response =
-        await http.get(Uri.http(_baseUrl, "/api/hospital/all"));
-    List<dynamic> reservsFromServer = json.decode(response.body);
-    if (response != "") {
-      for (var item in reservsFromServer) {
-        String hos = item['addresseHospital'] + " , " + item['nomHospital'];
-
-        hopital.add(HospitalData(
-            item['_id'], item['addresseHospital'], item['nomHospital']));
-      }
-    }
-    return true;
-  }
-
   @override
   void initState() {
     super.initState();
-    fetchedReservs = getReservs();
-
+    print(widget.bodyname);
     _loadCounter();
+    // getReservs();
   }
 
   String getText() {
     if (date == null) {
       return 'Select Date';
     } else {
-      _date = DateFormat('yyyy-MM-dd HH:mm:ss.SSS').format(date!);
-      print("date:$date");
+      _date = DateFormat('yyyy-MM-dd').format(date!);
+      print("date:$_date");
       return DateFormat('MM/dd/yyyy').format(date!);
       // return '${date.month}/${date.day}/${date.year}';
     }
@@ -74,29 +63,41 @@ class _RegisterState extends State<AddO> {
   late String value;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final String _baseUrl = "localhost:9091";
+  final String _baseUrl = ConstantUrl.constUrl;
 
   _loadCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _idH = prefs.getString('address')!;
-    print(_idH);
+    //print(_idH);
     setState(() {
       _firstname = (prefs.getString('firstname') ?? '');
       _lastname = (prefs.getString('lastname') ?? '');
       _email = (prefs.getString('email') ?? '');
-      _hospital = (prefs.getString('address') ?? '');
-      _idH = (prefs.getString('idHospital') ?? '');
-      print("email$_email");
+      _hospital = widget.bodyid;
+      //_idH = (prefs.getString('idHospital') ?? '');
+      // print("email$_email");
       _user = (prefs.getString('id') ?? '');
-      print(_hospital);
+      //print(_hospital);
     });
+    // http.Response response =
+    //     await http.get(Uri.http(_baseUrl, "api/hospital/all"));
+    // List<dynamic> reservsFromServer = json.decode(response.body);
+    // for (var item in reservsFromServer) {
+    //   if (item['_id'] == widget.bodyid) {
+    //     // print(widget.bodyid);
+    //     print(item['_id']);
+    //     heure.add(item['heureDebut'].toString());
+    //     heure.add(item['heureFin'].toString());
+    //   }
+    // }
   }
 
+  String _res = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xfff7f6fb),
+      backgroundColor: Get.isDarkMode ? Color(0xff424242) : Colors.white,
       body: Form(
         key: _formKey,
         child: ListView(
@@ -111,7 +112,7 @@ class _RegisterState extends State<AddO> {
                       shape: BoxShape.circle,
                     ),
                     child: Image.asset(
-                      '/no_history_ilustration.png',
+                      'assets/no_history_ilustration.png',
                       width: 200,
                       height: 200,
                     ),
@@ -154,37 +155,15 @@ class _RegisterState extends State<AddO> {
                                     borderRadius: BorderRadius.circular(10)),
                                 child: DropdownButtonHideUnderline(
                                   child: DropdownButton<String>(
+                                      style: subsobHeadingStyle,
                                       value: _time,
                                       items: heure.map(buildMenuItem).toList(),
                                       onChanged: (value) =>
-                                          setState(() => this._time = value!)),
+                                          setState(() => _time = value!)),
                                 )),
                             SizedBox(
                               width: 50,
                             ),
-                            /*
-                            Container(
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black12),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: DropdownButtonHideUnderline(
-                                  child: DropdownButton<HospitalData>(
-                                    items: hopital.map((hopital) {
-                                      return DropdownMenuItem(
-                                          value: hopital,
-                                          child: Text(hopital.toString()));
-                                    }).toList(),
-                                    onChanged: (newValue) {
-                                      print("new value : $newValue");
-                                      setState(() {
-                                        _hospital = newValue!.addresseHospital;
-                                        _idH = newValue.id;
-                                        print("new value : $_idH");
-                                      });
-                                    },
-                                  ),
-                                )),
-                                */
                           ],
                         ),
                         SizedBox(
@@ -194,50 +173,106 @@ class _RegisterState extends State<AddO> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
+                              //String _res2 = "";
+                              Map<String, dynamic> params2 = {
+                                "dateR": _date,
+                                "nameHos": _hospital,
+                                "heureR": _time,
+                                "idUser": _user
+                              };
 
-                                Map<String, dynamic> userData = {
-                                  "firstname": _firstname,
-                                  "lastname": _lastname,
-                                  "date": _date,
-                                  "heure": _time,
-                                  "user": _user,
-                                  "adresse":
-                                      "Hôpital régional Taher Maamouri Nabeul",
-                                  "hospital": "62655736955589ea4ac8a415",
-                                  "email": _email
-                                };
-
-                                Map<String, String> headers = {
-                                  "Content-Type":
-                                      "application/json; charset=UTF-8"
-                                };
-
-                                http
-                                    .post(
-                                        Uri.http(_baseUrl,
-                                            "/api/reservations/createReser"),
-                                        headers: headers,
-                                        body: json.encode(userData))
-                                    .then((http.Response response) {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              NavigationTab()));
-
-                                  showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return const AlertDialog(
-                                          title: Text("Information"),
-                                          content: Text(
-                                              "Your appoinment has been successfully !"),
-                                        );
-                                      });
+                              Map<String, String> headers = {
+                                "Content-Type":
+                                    "application/json; charset=UTF-8"
+                              };
+                              http
+                                  .post(
+                                      Uri.http(_baseUrl,
+                                          "/api/reservations/searchReser"),
+                                      headers: headers,
+                                      body: json.encode(params2))
+                                  .then((http.Response response) {
+                                _res = response.body;
+                                setState(() {
+                                  _res;
                                 });
-                              }
+
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+
+                                  switch (_res.toString()) {
+                                    case '"found"':
+                                      {
+                                        showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return const AlertDialog(
+                                                title: Text("Information"),
+                                                content: Text(
+                                                    "Vous avez déja un rendez-vous !"),
+                                              );
+                                            });
+                                      }
+                                      break;
+                                    case '"false"':
+                                      {
+                                        showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return const AlertDialog(
+                                                title: Text("Information"),
+                                                content: Text(
+                                                    "Choisissez une autre date !"),
+                                              );
+                                            });
+                                      }
+                                      break;
+                                    case '"true"':
+                                      {
+                                        Map<String, dynamic> userData = {
+                                          "firstname": _firstname,
+                                          "lastname": _lastname,
+                                          "date": _date,
+                                          "heure": _time,
+                                          "user": _user,
+                                          "adresse": widget.bodyname,
+                                          "hospital": widget.bodyid,
+                                          "email": _email
+                                        };
+
+                                        Map<String, String> headers = {
+                                          "Content-Type":
+                                              "application/json; charset=UTF-8"
+                                        };
+
+                                        http
+                                            .post(
+                                                Uri.http(_baseUrl,
+                                                    "/api/reservations/createReser"),
+                                                headers: headers,
+                                                body: json.encode(userData))
+                                            .then((http.Response response) {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      NavigationTab()));
+
+                                          showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return const AlertDialog(
+                                                  title: Text("Information"),
+                                                  content: Text(
+                                                      "Vous avez ajoutez un rendez-vous !"),
+                                                );
+                                              });
+                                        });
+                                      }
+                                  }
+                                }
+                                ;
+                              });
                             },
                             style: ButtonStyle(
                               foregroundColor: MaterialStateProperty.all<Color>(
@@ -296,12 +331,8 @@ class _RegisterState extends State<AddO> {
 
 class HospitalData {
   final String id;
-  final String addresseHospital;
-  final String nomHospital;
+  final String heureDebut;
+  final String heureFin;
 
-  HospitalData(this.id, this.addresseHospital, this.nomHospital);
-  @override
-  String toString() {
-    return '$nomHospital,$addresseHospital';
-  }
+  HospitalData(this.id, this.heureDebut, this.heureFin);
 }

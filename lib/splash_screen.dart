@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
       future: fetchedUser,
       builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
         if(snapshot.hasData) {
-        
+            
             return const Signin();
           
         }

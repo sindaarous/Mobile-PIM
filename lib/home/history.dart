@@ -6,6 +6,7 @@ import 'package:intl/date_time_patterns.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:workshop_sim4/category_list.dart';
+import 'package:workshop_sim4/consts.dart';
 import 'package:workshop_sim4/schedule_card.dart';
 import 'package:workshop_sim4/schedule_card_histo.dart';
 
@@ -15,7 +16,7 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
-  final String _baseUrl = 'localhost:9091';
+  final String _baseUrl = ConstantUrl.constUrl;
   String _user = "";
   late DateTime datee;
   late Future<bool> fetchedReservs;
@@ -85,7 +86,7 @@ class _HistoryState extends State<History> {
                   (minuteReservation < dateminuteNow))) {
             _reservs.add(ReservationData(
                 item['_id'], item['date'], item['heure'], item['result']));
-            String _baseUrl = "localhost:9091";
+  final String _baseUrl = ConstantUrl.constUrl;
             //Headers
             Map<String, String> headers = {
               "Content-Type": "application/json; charset=UTF-8"

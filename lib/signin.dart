@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:workshop_sim4/consts.dart';
+
 import 'navigations/nav_tab.dart';
 import 'signup.dart';
 import 'package:flutter/material.dart';
@@ -28,16 +30,6 @@ class _SigninState extends State<Signin> {
         elevation: 0,
         brightness: Brightness.light,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            size: 20,
-            color: Colors.black,
-          ),
-        ),
       ),
       body: Form(
         key: _keyForm,
@@ -103,6 +95,7 @@ class _SigninState extends State<Signin> {
               child: TextFormField(
                 cursorColor: Colors.black,
                 obscureText: true,
+                style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
                       borderSide: new BorderSide(
@@ -164,7 +157,8 @@ class _SigninState extends State<Signin> {
                     if (_keyForm.currentState!.validate()) {
                       _keyForm.currentState!.save();
                       //URL
-                      String _baseUrl = "localhost:9091";
+                      final String _baseUrl = ConstantUrl.constUrl;
+
                       //Headers
                       Map<String, String> headers = {
                         "Content-Type": "application/json; charset=UTF-8"
@@ -242,7 +236,9 @@ class _SigninState extends State<Signin> {
                       child: const Text(
                         "Register",
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 18),
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18),
                       ),
                       shape: RoundedRectangleBorder(
                           side: BorderSide(color: Colors.transparent),

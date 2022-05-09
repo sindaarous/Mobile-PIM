@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workshop_sim4/consts.dart';
 import 'package:workshop_sim4/navigations/nav_tab.dart';
 
 class Signup extends StatefulWidget {
@@ -24,17 +25,16 @@ class _SignupState extends State<Signup> {
   late String? _phone;
   late String? _GroupeSanguine;
   late String? _situationF;
-   late String? dropdownvalue = _GroupeSanguine;
-   late String? dropdownvalues = _situationF;
+  late String? dropdownvalue = _GroupeSanguine;
+  late String? dropdownvalues = _situationF;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inscription"),
-        backgroundColor: Color.fromRGBO(29, 170, 63, 1.0)
-      ),
+          title: const Text("Inscription"),
+          backgroundColor: Color.fromRGBO(29, 170, 63, 1.0)),
       body: Form(
         key: _formKey,
         child: ListView(
@@ -48,43 +48,6 @@ class _SignupState extends State<Signup> {
               margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
               child: TextFormField(
                 cursorColor: Colors.black,
-                keyboardType: TextInputType.text,
-                style: TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                    border: new OutlineInputBorder(
-                      borderSide: new BorderSide(
-                        color:Color.fromRGBO(29, 170, 63, 1.0),
-                      ),
-                    ),
-                    prefixIcon: const Icon(
-                      Icons.text_fields,
-                      color: Colors.black,
-                    ),
-                    labelStyle: TextStyle(color: Colors.black),
-                    // border: InputBorder.none,
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
-                    labelText: "Nom"),
-                onSaved: (String? value) {
-                  _firstname = value;
-                },
-                validator: (String? value) {
-                  if (value!.isEmpty || value.length < 3) {
-                    return "Le nom doit avoir au moins 3 caractères !";
-                  } else {
-                    return null;
-                  }
-                },
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-              child: TextFormField(
-               cursorColor: Colors.black,
                 keyboardType: TextInputType.text,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -104,7 +67,46 @@ class _SignupState extends State<Signup> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
+                    labelText: "Nom"),
+                onSaved: (String? value) {
+                  _firstname = value;
+                },
+                validator: (String? value) {
+                  if (value!.isEmpty || value.length < 3) {
+                    return "Le nom doit avoir au moins 3 caractères !";
+                  } else {
+                    return null;
+                  }
+                },
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              child: TextFormField(
+                cursorColor: Colors.black,
+                keyboardType: TextInputType.text,
+                style: TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderSide: new BorderSide(
+                        color: Color.fromRGBO(29, 170, 63, 1.0),
+                      ),
+                    ),
+                    prefixIcon: const Icon(
+                      Icons.text_fields,
+                      color: Colors.black,
+                    ),
+                    labelStyle: TextStyle(color: Colors.black),
+                    // border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Prénom"),
                 onSaved: (String? value) {
                   _lastname = value;
@@ -141,7 +143,8 @@ class _SignupState extends State<Signup> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Adresse email"),
                 onSaved: (String? value) {
                   _email = value;
@@ -160,9 +163,9 @@ class _SignupState extends State<Signup> {
             Container(
               margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
               child: TextFormField(
-                obscureText:true,
-                 cursorColor: Colors.black,
-               // maxLines: 4,
+                obscureText: true,
+                cursorColor: Colors.black,
+                // maxLines: 4,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                     border: new OutlineInputBorder(
@@ -181,8 +184,9 @@ class _SignupState extends State<Signup> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
-                     labelText: "Mot de passe"),
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
+                    labelText: "Mot de passe"),
                 onSaved: (String? value) {
                   _password = value;
                 },
@@ -218,7 +222,8 @@ class _SignupState extends State<Signup> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Adresse"),
                 onSaved: (String? value) {
                   _adresse = value;
@@ -235,7 +240,7 @@ class _SignupState extends State<Signup> {
             Container(
               margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
               child: TextFormField(
-               cursorColor: Colors.black,
+                cursorColor: Colors.black,
                 keyboardType: TextInputType.text,
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
@@ -255,7 +260,8 @@ class _SignupState extends State<Signup> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Birthday"),
                 onSaved: (String? value) {
                   _birthday = value;
@@ -292,13 +298,14 @@ class _SignupState extends State<Signup> {
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey)),
                     focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0))),
+                        borderSide: BorderSide(
+                            color: Color.fromRGBO(29, 170, 63, 1.0))),
                     labelText: "Numéro téléphone"),
                 onSaved: (String? value) {
                   _phone = value;
                 },
                 validator: (String? value) {
-                  if (value!.isEmpty || value.length == 8) {
+                  if (value!.isEmpty || value.length == 7) {
                     return "Le numéro doit avoir 8 caractères !";
                   } else {
                     return null;
@@ -307,20 +314,20 @@ class _SignupState extends State<Signup> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-               child: Column(
-                   
+                margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
                       DropdownButtonFormField<String>(
                         itemHeight: 50.0,
                         decoration: InputDecoration(
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0)),
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(29, 170, 63, 1.0)),
                           ),
                           border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0)),
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(29, 170, 63, 1.0)),
                           ),
                           prefixIcon: Icon(
                             Icons.bloodtype,
@@ -339,7 +346,6 @@ class _SignupState extends State<Signup> {
                           'AB+'
                         ].map((String value) {
                           return DropdownMenuItem<String>(
-                            
                             value: value,
                             child: new Text(value),
                           );
@@ -348,34 +354,32 @@ class _SignupState extends State<Signup> {
                           setState(() {
                             _GroupeSanguine = newValue!;
                             print(dropdownvalue);
-                            
                           });
                         },
                       ),
                     ])),
-            
             Container(
-              margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-             child: Column(
-                   
+                margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      
                       DropdownButtonFormField<String>(
                         itemHeight: 50.0,
                         decoration: InputDecoration(
                           focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0)),
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(29, 170, 63, 1.0)),
                           ),
                           border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Color.fromRGBO(29, 170, 63, 1.0)),
+                            borderSide: BorderSide(
+                                color: Color.fromRGBO(29, 170, 63, 1.0)),
                           ),
                           prefixIcon: Icon(
                             Icons.group,
                             color: Colors.black,
                           ),
                         ),
-                       hint: Text('Please choose your situation'),
+                        hint: Text('Please choose your situation'),
                         items: <String>[
                           'Célibataire',
                           'Marié(e)',
@@ -383,7 +387,6 @@ class _SignupState extends State<Signup> {
                           'Veuf(Veuve)',
                         ].map((String value) {
                           return DropdownMenuItem<String>(
-                            
                             value: value,
                             child: new Text(value),
                           );
@@ -392,31 +395,24 @@ class _SignupState extends State<Signup> {
                           setState(() {
                             _situationF = newValue!;
                             print(dropdownvalues);
-                            
                           });
                         },
                       ),
                     ])),
-            
-            
             Row(
-              
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                
                 ElevatedButton(
-                  
                     child: const Text("S'inscrire"),
-                     style: ElevatedButton.styleFrom(
-                       
-                primary: Color.fromRGBO(29, 170, 63, 1.0),
-                  ),
-                  
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(29, 170, 63, 1.0),
+                    ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
                         //URL
-                        String _baseUrl = "localhost:9091";
+                        final String _baseUrl = ConstantUrl.constUrl;
+
                         //Headers
                         Map<String, String> headers = {
                           "Content-Type": "application/json; charset=UTF-8"
@@ -433,16 +429,15 @@ class _SignupState extends State<Signup> {
                           "GroupeSanguine": _GroupeSanguine,
                           "situationF": _situationF
                         };
-                       
+
                         //Exec
                         http
                             .post(Uri.http(_baseUrl, '/api/patient/register'),
                                 headers: headers, body: json.encode(userData))
                             .then((http.Response response) async {
-
                           if (response.statusCode == 200) {
-                             print(userData);
-                           SharedPreferences prefs =
+                            print(userData);
+                            SharedPreferences prefs =
                                 await SharedPreferences.getInstance();
                             prefs.setString("email", userData["email"]);
                             prefs.setString("password", userData["password"]);
@@ -451,13 +446,15 @@ class _SignupState extends State<Signup> {
                             prefs.setString("adresse", userData["adresse"]);
                             prefs.setString("birthday", userData["birthday"]);
                             prefs.setString("phone", userData["phone"]);
-                            prefs.setString("GroupeSanguine", userData["GroupeSanguine"]);
+                            prefs.setString(
+                                "GroupeSanguine", userData["GroupeSanguine"]);
                             prefs.setString(
                                 "situationF", userData["situationF"]);
                             print("cbon signup ");
-                             Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationTab()));
-                     
-
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NavigationTab()));
                           } else if (response.statusCode == 401) {
                             showDialog(
                               context: context,
@@ -469,8 +466,7 @@ class _SignupState extends State<Signup> {
                                       Text('Erreur'),
                                     ],
                                   ),
-                                  content: Text(
-                                      'L email est invalide '),
+                                  content: Text('L email est invalide '),
                                 );
                               },
                             );
@@ -497,18 +493,15 @@ class _SignupState extends State<Signup> {
                   width: 20,
                 ),
                 ElevatedButton(
-                  
-                  child: const Text("Annuler"),
-                  
-                  onPressed: () {
-                    _formKey.currentState!.reset();
+                    child: const Text("Annuler"),
+                    onPressed: () {
+                      _formKey.currentState!.reset();
 
-                    Navigator.pushReplacementNamed(context, "/");
-                  },
-                  style: ElevatedButton.styleFrom(
-                primary: Color.fromRGBO(29, 170, 63, 1.0),
-                  )
-                )
+                      Navigator.pushReplacementNamed(context, "/");
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(29, 170, 63, 1.0),
+                    ))
               ],
             )
           ],

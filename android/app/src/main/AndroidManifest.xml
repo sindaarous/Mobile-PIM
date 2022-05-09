@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
    <application
-        android:label="workshop_sim4"
+        android:label="interX"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -36,15 +36,18 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <!-- Don't delete the meta-data below.
-             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
-        <meta-data
+            <meta-data android:name="mapbox_access_token" android:value="pk.eyJ1IjoiamloZW5nYWJzaSIsImEiOiJjbDI5MzB1eW8wMDh3M2RvNDlvNjBicTNoIn0.C2U9FyDJ0zTlbVe9tQ8Jmw" />
+         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
         <meta-data android:name="mapbox_access_token" android:value="pk.eyJ1IjoiamloZW5nYWJzaSIsImEiOiJjbDI5MzB1eW8wMDh3M2RvNDlvNjBicTNoIn0.C2U9FyDJ0zTlbVe9tQ8Jmw" />
         <meta-data 
         android:name="com.google.android.geo.API_KEY" 
         android:value="AIzaSyBMIdttmrLG1Lie-TB1VaxKQ3IhwVX1jtk"/>
+      
+        </activity>
+        <!-- Don't delete the meta-data below.
+             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+     
     </application>
 </manifest>

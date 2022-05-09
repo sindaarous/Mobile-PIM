@@ -22,10 +22,26 @@ class Themes {
       brightness: Brightness.dark);
 }
 
+TextStyle get subsubHeadingStyle {
+  return GoogleFonts.lato(
+      textStyle: TextStyle(
+          color: Get.isDarkMode ? Colors.grey[400] : darkGreyClr,
+          fontSize: 16,
+          fontWeight: FontWeight.bold));
+}
+
+TextStyle get subsobHeadingStyle {
+  return GoogleFonts.lato(
+      textStyle: TextStyle(
+          color: Get.isDarkMode ? Colors.grey[400] : Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold));
+}
+
 TextStyle get subHeadingStyle {
   return GoogleFonts.lato(
       textStyle: TextStyle(
-          color: Get.isDarkMode ? Colors.grey[400] : Colors.grey,
+          color: Get.isDarkMode ? Colors.grey[400] : darkGreyClr,
           fontSize: 20,
           fontWeight: FontWeight.bold));
 }

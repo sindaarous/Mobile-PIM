@@ -12,172 +12,273 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:3:6-67
-14-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:3:23-65
-15    <uses-permission android:name="android.permission.VIBRATE" />
-15-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:4:5-66
-15-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:4:22-63
-16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-16-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:5:5-80
-16-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:5:22-78
-17    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
-17-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-81
-17-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-78
-18    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- Include required permissions for Google Maps API to run. -->
-18-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-79
-18-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-76
-19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
-19-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
-20
-21    <uses-feature
-21-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
-22        android:glEsVersion="0x00020000"
-22-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
-23        android:required="true" />
-23-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
-24
-25    <application
-25-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:6:4-46:19
-26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-26-->[androidx.core:core:1.6.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\122df2e57d294d1a53db26bbc3b813c1\core-1.6.0\AndroidManifest.xml:24:18-86
-27        android:debuggable="true"
-28        android:icon="@mipmap/ic_launcher"
-28-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:8:9-43
-29        android:label="workshop_sim4" >
-29-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:7:9-38
-30        <activity
-30-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:9:9-37:20
-31            android:name="com.cross.flutter.workshop_sim4.MainActivity"
-31-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:10:13-41
-32            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-32-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:13:13-163
-33            android:hardwareAccelerated="true"
-33-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:14:13-47
-34            android:launchMode="singleTop"
-34-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:11:13-43
-35            android:theme="@style/LaunchTheme"
-35-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:12:13-47
-36            android:windowSoftInputMode="adjustResize" >
-36-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:15:13-55
-37
-38            <!--
-39                 Specifies an Android theme to apply to this Activity as soon as
-40                 the Android process has started. This theme is visible to the user
-41                 while the Flutter UI initializes. After that, this theme continues
-42                 to determine the Window background behind the Flutter UI.
-43            -->
-44            <meta-data
-44-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:20:13-23:17
-45                android:name="io.flutter.embedding.android.NormalTheme"
-45-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:21:15-70
-46                android:resource="@style/NormalTheme" />
-46-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:22:15-52
-47            <!--
-48                 Displays an Android View that continues showing the launch screen
-49                 Drawable until Flutter paints its first frame, then this splash
-50                 screen fades out. A splash screen is useful to avoid any visual
-51                 gap between the end of Android's launch screen and the painting of
-52                 Flutter's first frame.
-53            -->
-54            <meta-data
-54-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:29:13-32:17
-55                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-55-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:30:15-79
-56                android:resource="@drawable/launch_background" />
-56-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:31:15-61
-57
-58            <intent-filter>
-58-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:33:13-36:29
-59                <action android:name="android.intent.action.MAIN" />
-59-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:34:17-68
-59-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:34:25-66
-60
-61                <category android:name="android.intent.category.LAUNCHER" />
-61-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:35:17-76
-61-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:35:27-74
-62            </intent-filter>
-63        </activity>
-64        <!--
-65             Don't delete the meta-data below.
-66             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-67        -->
-68        <meta-data
-68-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:40:9-42:33
-69            android:name="flutterEmbedding"
-69-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:41:13-44
-70            android:value="2" />
-70-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:42:13-30
-71        <meta-data
-71-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:43:9-45:66
-72            android:name="com.google.android.geo.API_KEY"
-72-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:44:9-54
-73            android:value="AIzaSyAHaOGYlnjsXN7CpDDthI1hsCU8Cal6408" />
-73-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:45:9-64
-74
-75        <receiver
-75-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-15:40
-76            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
-76-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-97
-77            android:exported="false" />
-77-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
-78        <receiver
-78-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-25:20
-79            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
-79-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-101
-80            android:exported="false" >
-80-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
-81            <intent-filter>
-81-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-24:29
-82                <action android:name="android.intent.action.BOOT_COMPLETED" />
-82-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:20:17-79
-82-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:20:25-76
-83                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-83-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:21:17-84
-83-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:21:25-81
-84                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-84-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-82
-84-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:22:25-79
-85                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
-85-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:23:17-82
-85-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:23:25-79
-86            </intent-filter>
-87        </receiver>
-88
-89        <uses-library
-89-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-90            android:name="androidx.window.extensions"
-90-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-91            android:required="false" />
-91-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-92        <uses-library
-92-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-93            android:name="androidx.window.sidecar"
-93-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-94            android:required="false" /> <!-- Needs to be explicitly declared on P+ -->
-94-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-95        <uses-library
-95-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
-96            android:name="org.apache.http.legacy"
-96-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
-97            android:required="false" />
-97-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
-98
-99        <activity
-99-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-100            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-100-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-101            android:exported="false"
-101-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-102            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-102-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-103
-104        <meta-data
-104-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\a7975ba3cb0c3630bd14453686890431\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-105            android:name="com.google.android.gms.version"
-105-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\a7975ba3cb0c3630bd14453686890431\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-106            android:value="@integer/google_play_services_version" />
-106-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\a7975ba3cb0c3630bd14453686890431\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-107    </application>
+14-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:5:6-67
+14-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:5:23-65
+15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+15-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:3:6-81
+15-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:3:23-79
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:4:6-79
+16-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:4:23-77
+17    <uses-permission android:name="android.permission.VIBRATE" />
+17-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:6:5-66
+17-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:6:22-63
+18    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+18-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:7:5-80
+18-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:7:22-78
+19    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+19-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-81
+19-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-78
+20    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+20-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-79
+20-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-76
+21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+21-->[:geolocator_android] D:\pim\Mobile\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-77
+21-->[:geolocator_android] D:\pim\Mobile\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-74
+22
+23    <uses-feature
+23-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:9:5-11:35
+24        android:glEsVersion="0x00020000"
+24-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:10:9-41
+25        android:required="true" />
+25-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:11:9-32
+26    <uses-feature
+26-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:12:5-14:36
+27        android:name="android.hardware.wifi"
+27-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:13:9-45
+28        android:required="false" />
+28-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:14:9-33
+29
+30    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+30-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:17:5-79
+30-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:17:22-76
+31    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Required for CrashReporterJobIntentService on API levels below 25 -->
+31-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:18:5-76
+31-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\faf4b4fa8ba7412b053e3bd2e1a019e0\jetified-mapbox-android-sdk-9.6.2\AndroidManifest.xml:18:22-73
+32    <uses-permission android:name="android.permission.WAKE_LOCK" />
+32-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:12:5-68
+32-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:12:22-65
+33    <uses-permission
+33-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:16:5-18:38
+34        android:name="android.permission.GET_TASKS"
+34-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:17:9-52
+35        android:maxSdkVersion="20" />
+35-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:18:9-35
+36
+37    <application
+37-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:8:4-52:19
+38        android:name="androidx.multidex.MultiDexApplication"
+39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+39-->[androidx.core:core:1.6.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\122df2e57d294d1a53db26bbc3b813c1\core-1.6.0\AndroidManifest.xml:24:18-86
+40        android:debuggable="true"
+41        android:icon="@mipmap/ic_launcher"
+41-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:10:9-43
+42        android:label="interX" >
+42-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:9:9-31
+43        <activity
+43-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:11:9-48:20
+44            android:name="com.cross.flutter.workshop_sim4.MainActivity"
+44-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:12:13-41
+45            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+45-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:15:13-163
+46            android:hardwareAccelerated="true"
+46-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:16:13-47
+47            android:launchMode="singleTop"
+47-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:13:13-43
+48            android:theme="@style/LaunchTheme"
+48-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:14:13-47
+49            android:windowSoftInputMode="adjustResize" >
+49-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:17:13-55
+50
+51            <!--
+52                 Specifies an Android theme to apply to this Activity as soon as
+53                 the Android process has started. This theme is visible to the user
+54                 while the Flutter UI initializes. After that, this theme continues
+55                 to determine the Window background behind the Flutter UI.
+56            -->
+57            <meta-data
+57-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:22:13-25:17
+58                android:name="io.flutter.embedding.android.NormalTheme"
+58-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:23:15-70
+59                android:resource="@style/NormalTheme" />
+59-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:24:15-52
+60            <!--
+61                 Displays an Android View that continues showing the launch screen
+62                 Drawable until Flutter paints its first frame, then this splash
+63                 screen fades out. A splash screen is useful to avoid any visual
+64                 gap between the end of Android's launch screen and the painting of
+65                 Flutter's first frame.
+66            -->
+67            <meta-data
+67-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:31:13-34:17
+68                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+68-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:32:15-79
+69                android:resource="@drawable/launch_background" />
+69-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:33:15-61
+70
+71            <intent-filter>
+71-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:35:13-38:29
+72                <action android:name="android.intent.action.MAIN" />
+72-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:36:17-68
+72-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:36:25-66
+73
+74                <category android:name="android.intent.category.LAUNCHER" />
+74-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:37:17-76
+74-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:37:27-74
+75            </intent-filter>
+76
+77            <meta-data
+77-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:39:13-171
+78                android:name="mapbox_access_token"
+78-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:39:24-58
+79                android:value="pk.eyJ1IjoiamloZW5nYWJzaSIsImEiOiJjbDI5MzB1eW8wMDh3M2RvNDlvNjBicTNoIn0.C2U9FyDJ0zTlbVe9tQ8Jmw" />
+79-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:39:59-168
+80            <meta-data
+80-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:40:10-42:33
+81                android:name="flutterEmbedding"
+81-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:41:13-44
+82                android:value="2" />
+82-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:42:13-30
+83            <meta-data
+83-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:39:13-171
+84                android:name="mapbox_access_token"
+84-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:39:24-58
+85                android:value="pk.eyJ1IjoiamloZW5nYWJzaSIsImEiOiJjbDI5MzB1eW8wMDh3M2RvNDlvNjBicTNoIn0.C2U9FyDJ0zTlbVe9tQ8Jmw" />
+85-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:39:59-168
+86            <meta-data
+86-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:44:9-46:66
+87                android:name="com.google.android.geo.API_KEY"
+87-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:45:9-54
+88                android:value="AIzaSyBMIdttmrLG1Lie-TB1VaxKQ3IhwVX1jtk" />
+88-->D:\pim\Mobile\android\app\src\main\AndroidManifest.xml:46:9-64
+89        </activity>
+90        <!--
+91             Don't delete the meta-data below.
+92             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+93        -->
+94
+95        <receiver
+95-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-15:40
+96            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+96-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-97
+97            android:exported="false" />
+97-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+98        <receiver
+98-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-25:20
+99            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+99-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-101
+100            android:exported="false" >
+100-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+101            <intent-filter>
+101-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-24:29
+102                <action android:name="android.intent.action.BOOT_COMPLETED" />
+102-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:20:17-79
+102-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:20:25-76
+103                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+103-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:21:17-84
+103-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:21:25-81
+104                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+104-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-82
+104-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:22:25-79
+105                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+105-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:23:17-82
+105-->[:flutter_local_notifications] D:\pim\Mobile\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:23:25-79
+106            </intent-filter>
+107        </receiver>
 108
-109</manifest>
+109        <service
+109-->[:geolocator_android] D:\pim\Mobile\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-14:56
+110            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+110-->[:geolocator_android] D:\pim\Mobile\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-77
+111            android:enabled="true"
+111-->[:geolocator_android] D:\pim\Mobile\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-35
+112            android:exported="false"
+112-->[:geolocator_android] D:\pim\Mobile\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-37
+113            android:foregroundServiceType="location" />
+113-->[:geolocator_android] D:\pim\Mobile\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-53
+114        <service
+114-->[:location] D:\pim\Mobile\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
+115            android:name="com.lyokone.location.FlutterLocationService"
+115-->[:location] D:\pim\Mobile\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-71
+116            android:enabled="true"
+116-->[:location] D:\pim\Mobile\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-35
+117            android:exported="false"
+117-->[:location] D:\pim\Mobile\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+118            android:foregroundServiceType="location" />
+118-->[:location] D:\pim\Mobile\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-53
+119
+120        <uses-library
+120-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+121            android:name="androidx.window.extensions"
+121-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+122            android:required="false" />
+122-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+123        <uses-library
+123-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+124            android:name="androidx.window.sidecar"
+124-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+125            android:required="false" /> <!-- Offline download region picker activity -->
+125-->[androidx.window:window:1.0.0-beta04] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\03c633e46d75bfb21f082f0417f55161\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+126        <activity
+126-->[com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v9:0.7.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\efd03c926db5633d7c7c04359bed7e7a\jetified-mapbox-android-plugin-offline-v9-0.7.0\AndroidManifest.xml:12:9-14:125
+127            android:name="com.mapbox.mapboxsdk.plugins.offline.ui.OfflineActivity"
+127-->[com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v9:0.7.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\efd03c926db5633d7c7c04359bed7e7a\jetified-mapbox-android-plugin-offline-v9-0.7.0\AndroidManifest.xml:13:13-83
+128            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" /> <!-- Offline download service -->
+128-->[com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v9:0.7.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\efd03c926db5633d7c7c04359bed7e7a\jetified-mapbox-android-plugin-offline-v9-0.7.0\AndroidManifest.xml:14:13-122
+129        <service
+129-->[com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v9:0.7.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\efd03c926db5633d7c7c04359bed7e7a\jetified-mapbox-android-plugin-offline-v9-0.7.0\AndroidManifest.xml:17:9-19:40
+130            android:name="com.mapbox.mapboxsdk.plugins.offline.offline.OfflineDownloadService"
+130-->[com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v9:0.7.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\efd03c926db5633d7c7c04359bed7e7a\jetified-mapbox-android-plugin-offline-v9-0.7.0\AndroidManifest.xml:18:13-95
+131            android:exported="false" /> <!-- Needs to be explicitly declared on P+ -->
+131-->[com.mapbox.mapboxsdk:mapbox-android-plugin-offline-v9:0.7.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\efd03c926db5633d7c7c04359bed7e7a\jetified-mapbox-android-plugin-offline-v9-0.7.0\AndroidManifest.xml:19:13-37
+132        <uses-library
+132-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+133            android:name="org.apache.http.legacy"
+133-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+134            android:required="false" />
+134-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\6f3daa1ca7d5f0cb334e07491a88b930\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+135
+136        <activity
+136-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+137            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+137-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+138            android:exported="false"
+138-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+139            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+139-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\3679fa9be1d67d14c72169d3353f14d4\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+140
+141        <meta-data
+141-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\a7975ba3cb0c3630bd14453686890431\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+142            android:name="com.google.android.gms.version"
+142-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\a7975ba3cb0c3630bd14453686890431\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+143            android:value="@integer/google_play_services_version" />
+143-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\a7975ba3cb0c3630bd14453686890431\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+144
+145        <provider
+145-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:21:9-25:39
+146            android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"
+146-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:22:13-93
+147            android:authorities="com.cross.flutter.workshop_sim4.mapboxtelemetryinitprovider"
+147-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:23:13-79
+148            android:exported="false"
+148-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:24:13-37
+149            android:initOrder="100" />
+149-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:25:13-36
+150
+151        <service
+151-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:27:9-30:72
+152            android:name="com.mapbox.android.telemetry.errors.ErrorReporterJobIntentService"
+152-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:28:13-93
+153            android:exported="false"
+153-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:29:13-37
+154            android:permission="android.permission.BIND_JOB_SERVICE" />
+154-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:30:13-69
+155        <service
+155-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:31:9-33:40
+156            android:name="com.mapbox.android.telemetry.MapboxTelemetryService"
+156-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:32:13-79
+157            android:exported="false" />
+157-->[com.mapbox.mapboxsdk:mapbox-android-telemetry-okhttp3:8.1.0] C:\Users\DELL\.gradle\caches\transforms-2\files-2.1\ea68962a047e681f35d34d1e9307a126\jetified-mapbox-android-telemetry-okhttp3-8.1.0\AndroidManifest.xml:33:13-37
+158    </application>
+159
+160</manifest>

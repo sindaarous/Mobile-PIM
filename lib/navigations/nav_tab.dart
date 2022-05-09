@@ -32,10 +32,10 @@ class NavigationTab extends StatelessWidget {
               },
               child: Icon(
                   Get.isDarkMode
-                      ? Icons.wb_sunny_outlined
-                      : Icons.nightlight_round,
+                      ? Icons.nightlight_round
+                      : Icons.wb_sunny_outlined,
                   size: 20,
-                  color: Get.isDarkMode ? Colors.white : Colors.black),
+                  color: Get.isDarkMode ? Colors.black : Colors.white),
             ),
           ],
           title: const Text(
@@ -44,7 +44,9 @@ class NavigationTab extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          backgroundColor: Color.fromRGBO(29, 170, 63, 1.0),
+          backgroundColor: Get.isDarkMode
+              ? Color(0xff424242)
+              : Color.fromRGBO(29, 170, 63, 1.0),
         ),
         drawer: Drawer(
           child: Column(
@@ -53,28 +55,6 @@ class NavigationTab extends StatelessWidget {
                 title: const Text("Your Menu"),
                 automaticallyImplyLeading: false,
                 backgroundColor: Color.fromRGBO(29, 170, 63, 1.0),
-              ),
-              ListTile(
-                title: Row(
-                  children: const [
-                    Icon(Icons.portrait_sharp),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text("Show Profile"),
-                    SizedBox(
-                      width: 125,
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: Color.fromRGBO(29, 170, 63, 1.0),
-                    ),
-                  ],
-                ),
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => showProfile()));
-                },
               ),
               ListTile(
                 title: Row(

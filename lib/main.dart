@@ -21,7 +21,7 @@ Future<void> main() async {
 
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    home: NavigationTab(),
+    home: SplashScreen(),
     title: 'Interx',
     theme: Themes.light,
     darkTheme: Themes.dark,

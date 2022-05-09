@@ -1,4 +1,10 @@
-#Mon Apr 11 12:16:06 BST 2022
-base.0=D\:\\pim\\Mobile\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Mon May 09 10:12:45 BST 2022
+path.2=classes3.dex
+path.1=classes2.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
+base.2=D\:\\pim\\Mobile\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
+base.1=D\:\\pim\\Mobile\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
+base.0=D\:\\pim\\Mobile\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex

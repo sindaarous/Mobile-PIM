@@ -6,11 +6,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workshop_sim4/acceuil.dart';
 import 'package:workshop_sim4/addR.dart';
 import 'package:workshop_sim4/body.dart';
+import 'package:workshop_sim4/consts.dart';
 import 'package:workshop_sim4/home/updateProfile.dart';
 import 'product_info.dart';
 
 Future<User> fetchUser() async {
-  String _baseUrl = "localhost:9091";
+  final String _baseUrl = ConstantUrl.constUrl;
   Map<String, String> headers = {
     "Content-Type": "application/json; charset=UTF-8"
   };

@@ -1,12 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:workshop_sim4/body.dart';
+import 'package:workshop_sim4/consts.dart';
+import 'package:workshop_sim4/home/home.dart';
+import 'package:workshop_sim4/navigations/nav_tab.dart';
 
-class ScheduleCard extends StatelessWidget {
+import 'calendar/theme.dart';
+
+class ScheduleCard extends StatefulWidget {
   final String _id;
   final String _date;
+  final String _hospital;
   final String _heure;
   final String _result;
 
-  const ScheduleCard(this._id, this._date, this._heure, this._result);
+  const ScheduleCard(
+      this._id, this._date, this._hospital, this._heure, this._result);
+  @override
+  _RegisterState createState() => _RegisterState();
+}
+
+class _RegisterState extends State<ScheduleCard> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +51,11 @@ class ScheduleCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  DateTime.parse(_date).day.toString() +
+                  DateTime.parse(widget._date).day.toString() +
                       "/" +
-                      DateTime.parse(_date).month.toString() +
+                      DateTime.parse(widget._date).month.toString() +
                       "/" +
-                      DateTime.parse(_date).year.toString(),
+                      DateTime.parse(widget._date).year.toString(),
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 20,
@@ -42,7 +63,7 @@ class ScheduleCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  _heure + ":00",
+                  widget._heure,
                   style: TextStyle(
                     color: Colors.green,
                     fontSize: 16,
@@ -52,19 +73,59 @@ class ScheduleCard extends StatelessWidget {
               ],
             ),
           ),
-          title: Text(
-            "Rendez-vous",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Color(0xff1E1C61),
-            ),
-          ),
-          subtitle: Text(
-            _result,
-            style: TextStyle(
-              color: Color(0xff1E1C61).withOpacity(0.7),
-            ),
-          ),
+          title: Text(widget._hospital, style: subsubHeadingStyle),
+          subtitle: Text(widget._result, style: subsubHeadingStyle),
+          trailing: IconButton(
+              icon: Icon(
+                Icons.delete,
+                color: Colors.green,
+                size: 24.0,
+                semanticLabel: 'Text to announce in accessibility modes',
+              ),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Information"),
+                        content: Text("Etes vous sure?"),
+                        actions: [
+                          ElevatedButton(
+                              child: Text("Oui"),
+                              onPressed: () {
+                                final String _baseUrl = ConstantUrl.constUrl;
+                                Map<String, dynamic> userData = {
+                                  "_id": widget._id
+                                };
+
+                                Map<String, String> headers = {
+                                  "Content-Type":
+                                      "application/json; charset=UTF-8"
+                                };
+                                http
+                                    .put(
+                                        Uri.http(_baseUrl,
+                                            "/api/reservations/deleteReser"),
+                                        headers: headers,
+                                        body: json.encode(userData))
+                                    .then((http.Response response) {
+                                  Navigator.of(context).pop("Great!");
+
+                                  // Return value
+                                });
+
+                                // Return value
+                              }),
+                          ElevatedButton(
+                              child: Text("Annuler"),
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pop("Great!"); // Return value
+                              }),
+                        ],
+                      );
+                    });
+              }),
         ),
       ),
     );

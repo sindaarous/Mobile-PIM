@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workshop_sim4/consts.dart';
 import 'package:workshop_sim4/home/showProfile.dart';
 
 import '../navigations/nav_tab.dart';
 
 Future<User> fetchUser() async {
-  String _baseUrl = "localhost:9091";
+  final String _baseUrl = ConstantUrl.constUrl;
   Map<String, String> headers = {
     "Content-Type": "application/json; charset=UTF-8"
   };
